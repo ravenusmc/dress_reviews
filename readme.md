@@ -1,6 +1,10 @@
 # Dress_Reviews
 ## Intro
 
+Okay, I was not going to do another data science project right after my statues project. However, I 
+was looking at Kaggle and found this data set - about clothes that sparked my interested. I thought it 
+would be a fun easy project to do. 
+
 Data from Kaggle: https://www.kaggle.com/datasets/surajjha101/myntra-reviews-on-women-dresses-comprehensive?select=Women+Dresses+Reviews+Dataset+.csv
 
 
