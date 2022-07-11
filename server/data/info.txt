@@ -1,0 +1,29 @@
+This file will containing information on the dataset. 
+
+s.no                     int64
+age                      int64
+division_name           object
+department_name         object
+class_name              object
+clothing_id              int64
+title                   object
+review_text             object
+alike_feedback_count     int64
+rating                   int64
+recommend_index          int64
+
+RangeIndex: 23486 entries, 0 to 23485
+Data columns (total 11 columns):
+ #   Column                Non-Null Count  Dtype 
+---  ------                --------------  ----- 
+ 0   s.no                  23486 non-null  int64 
+ 1   age                   23486 non-null  int64 
+ 2   division_name         23472 non-null  object
+ 3   department_name       23472 non-null  object
+ 4   class_name            23472 non-null  object
+ 5   clothing_id           23486 non-null  int64 
+ 6   title                 19676 non-null  object
+ 7   review_text           22641 non-null  object
+ 8   alike_feedback_count  23486 non-null  int64 
+ 9   rating                23486 non-null  int64 
+ 10  recommend_index       23486 non-null  int64 

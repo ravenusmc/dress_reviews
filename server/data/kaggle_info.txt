@@ -1,0 +1,13 @@
+This single file contains 11 attributes.
+
+s.no : Simply, the Index!
+age : Age of the customer
+division_nam: Division of the Cloth customer has bought
+department_name : Department of the Cloth
+class_name : Class of the Cloth in particular.
+clothing_id : Clothing ID (Unique to a type of product)
+title : Title customers write on their feedback/review text
+review_text : Customer's Review Text
+alikefeedbackcount : Number of other customers who agrees with the given feedback (as their experience is quite the same)
+rating : Rating or stars they've given to the product
+recommend_index : Whether they'll recommend someone to buy the product or not (0: NO, 1:YES)
