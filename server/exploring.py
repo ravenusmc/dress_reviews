@@ -27,7 +27,7 @@ class Exploring():
     def drop_na(self):
         # print(self.data.shape)
         data = self.data.dropna()
-        print(data.info())
+        # print(data.info())
         # print(data.shape)
 
 
