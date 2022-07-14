@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 from datetime import date
 
-
 class Exploring():
 
     def __init__(self):
@@ -29,7 +28,8 @@ class Exploring():
         data = self.data.dropna()
         # print(data.info())
         # print(data.shape)
-
+    
+    # I need to get columns and all distince values within a column. 
 
 test=Exploring()
 test.drop_na()
