@@ -25,11 +25,19 @@ class Exploring():
     
     def drop_na(self):
         # print(self.data.shape)
-        data = self.data.dropna()
+        return self.data.dropna()
         # print(data.info())
         # print(data.shape)
+    
+    def get_column_names(self):
+        exploring = Exploring()
+        data = exploring.drop_na()
+        for col in data.columns:
+            print(col)
+            input()
+
     
     # I need to get columns and all distince values within a column. 
 
 test=Exploring()
-test.drop_na()
+test.get_column_names()
