@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from datetime import date
 
+
 class Exploring():
 
     def __init__(self):
@@ -22,22 +23,35 @@ class Exploring():
 
     def get_isna(self):
         print(self.data.isna())
-    
+
     def drop_na(self):
         # print(self.data.shape)
         return self.data.dropna()
         # print(data.info())
         # print(data.shape)
-    
+
     def get_column_names(self):
         exploring = Exploring()
         data = exploring.drop_na()
-        for col in data.columns:
-            print(col)
+        return list(data.columns)
+        print(column_names)
+        # for col in data.columns:
+        #     print(col)
+        #     input()
+
+    def distinct_names_per_column(self, column_names):
+        exploring = Exploring()
+        data = exploring.drop_na()
+        for column_name in column_names:
+            print(column_name)
+            unique_value = list(data[column_name].unique())
+            print(unique_value)
             input()
 
-    
-    # I need to get columns and all distince values within a column. 
+
 
 test=Exploring()
-test.get_column_names()
+column_names = test.get_column_names()
+test.distinct_names_per_column(column_names)
+
+# ['General', 'General Petite', 'Initmates']
