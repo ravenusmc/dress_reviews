@@ -1,25 +1,18 @@
 <template>
   <div>
-    <div class="p-5 text-center bg-image rounded-3 jumbotron-image">
-      <div class="mask">
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <div class="text-white">
-            <h1 class="mb-3">Examining Dresses</h1>
-            <h4 class="mb-3">A Simple Study</h4>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Jumbotron/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Jumbotron from "@/components/landing/Jumbotron.vue";
 
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    Jumbotron,
+  },
 };
 </script>
 
