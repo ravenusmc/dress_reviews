@@ -30,6 +30,7 @@ export default {
 }
 
 .mask {
+	margin-top: 10%;
   background-color: rgba(0, 0, 0, 0.6);
 }
 </style>
