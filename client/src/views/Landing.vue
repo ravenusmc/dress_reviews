@@ -1,17 +1,20 @@
 <template>
   <div>
-    <Jumbotron/>
+    <Jumbotron />
+    <Main />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Jumbotron from "@/components/landing/Jumbotron.vue";
+import Main from "@/components/landing/Main.vue";
 
 export default {
   name: "HomeView",
   components: {
     Jumbotron,
+    Main,
   },
 };
 </script>
