@@ -3,9 +3,9 @@
     <footer>
       <div class="footer_fix">
         <h2 class="footerTitle font">
-          Copyright &copy; 2021 Double Sun Productions<br />
+          Copyright &copy; 2022 Double Sun Productions<br />
         </h2>
-        <!-- <div class="icon-div">
+        <div class="icon-div">
           <a href="https://twitter.com/mcuddy7">
             <fa-icon :icon="['fas', 'hashtag']" size="3x" />
           </a>
@@ -18,7 +18,7 @@
           <a href="https://www.linkedin.com/in/mcuddy1/">
             <fa-icon :icon="['fas', 'network-wired']" size="3x" />
           </a>
-        </div> -->
+        </div>
       </div>
     </footer>
   </div>
@@ -36,7 +36,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #f24767;
+  background: #50A8F1;
   height: 300px;
 }
 .footer_fix {

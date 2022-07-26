@@ -5,6 +5,11 @@
 			<div class="generic_picture picture-middle"></div>
 			<div class="generic_picture picture-right">></div>
 		</section>
+		<section class="sub-area">
+			<div class='sub-area-div'>
+				<p class='sub-area-paragraph'>A simple study <br> to examine <br> dress data</p>
+			</div>
+		</section>
 	</div>
 </template>
 
@@ -24,7 +29,7 @@ export default {
 
 .generic_picture { 
 	margin: 0 20px 0 20px;
-	height: 450px;
+	height: 550px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; 
@@ -40,6 +45,21 @@ export default {
 
 .picture-right {
   background-image: url("../../assets/images/right.jpg");
+}
+
+.sub-area {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.sub-area-div {
+	border: 2px solid black;
+	border-radius: 100px;
+	padding: 35px;
+	text-align: center;
 }
 
 
