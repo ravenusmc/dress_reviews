@@ -53,13 +53,16 @@ export default {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 50px;
+	height: 300px;
 }
 
 .sub-area-div {
-	border: 2px solid black;
-	border-radius: 100px;
-	padding: 35px;
 	text-align: center;
+}
+
+.sub-area-paragraph {
+	font-size: 2em;
+	text-transform: uppercase;
 }
 
 
