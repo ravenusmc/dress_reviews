@@ -50,3 +50,5 @@ rating
 
 recommend_index 
 [1, 0]
+
+npm uninstall vue-google-charts --save
