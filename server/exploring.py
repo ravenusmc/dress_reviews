@@ -47,11 +47,21 @@ class Exploring():
             unique_value = list(data[column_name].unique())
             print(unique_value)
             input()
-
+    
+    def see_distinct_values_for_division_name(self):
+        exploring = Exploring()
+        data = exploring.drop_na() 
+        new_dataframe = data[data['division_name'] == 'General'] 
+        unique_department_names = list(data['department_name'].unique())
+        print(unique_department_names)
+        print('DONE')
+        input()
+        new_dataframe.to_csv('exploring_data.csv', encoding='utf-8', index=False)
 
 
 test=Exploring()
-column_names = test.get_column_names()
-test.distinct_names_per_column(column_names)
+# column_names = test.get_column_names()
+# test.distinct_names_per_column(column_names)
+test.see_distinct_values_for_division_name()
 
 # ['General', 'General Petite', 'Initmates']

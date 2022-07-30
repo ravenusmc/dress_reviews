@@ -25,3 +25,6 @@ recommend_index
 
 Should I make graphs or have a table that shows the data for everything? I always do graphs and why not try 
 something different? 
+
+-Start with building table that shows entire CSV file on page load. 
+-Then start building filters - starting with division, department_name, class_name, rating 

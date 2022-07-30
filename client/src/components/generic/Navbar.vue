@@ -18,17 +18,21 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#"
-              ><router-link to="/">Home</router-link><span class="sr-only">(current)</span></a
+              ><router-link to="/">Home</router-link
+              ><span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="navbar-item">
-              
-            </a>
+            <a class="navbar-item"> </a>
           </li>
-					<li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="#">
               <router-link to="/about">About</router-link>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <router-link to="/main">Data</router-link>
             </a>
           </li>
         </ul>
@@ -59,5 +63,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
