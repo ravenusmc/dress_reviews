@@ -1,11 +1,15 @@
 <template>
   <div>
-    <GraphCard
+    <section class='main-section'>
+      <div class='form-area'></div>
+      <div class='table-area'>
+        <GraphCard
       :typeOne="typeOne"
       :data="firstGraphDataSetInitial"
       :options="chartOptionsOne"
     />
-    <p>main</p>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -45,4 +49,17 @@ export default {
 </script>
 
 <style scoped>
+
+.main-section {
+	display: grid;
+	grid-template-columns: 20% 80%;
+}
+
+.form-area {
+	border: 2px solid red;
+}
+
+.table-area {
+	border: 2px solid blue;
+}
 </style>
