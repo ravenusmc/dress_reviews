@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex)
 
@@ -12,31 +13,45 @@ const state = {
 	],
 	division_names: [
 		'General', 'General Petite', 'Initmates'
-	]
+	],
+	selectedDivisionName: '',
+	department_names: [
+		'Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend'
+	], 
+	selectedDepartmentName: '',
 };
 
 const getters = {
 	firstGraphDataSetInitial: state => state.firstGraphDataSetInitial,
 	division_names: state => state.division_names,
+	selectedDivisionName: state => state.selectedDivisionName, 
+	department_names: state => state.department_names, 
+	selectedDepartmentName: state => state.selectedDepartmentName,
 };
 
 const actions = {
 
 	changeSelectionBasedOnDivisionName: ({ commit }, { payload }) => {
-		console.log(payload)
-		// const path = 'http://localhost:5000/fetch_north_south_by_year';
-		// axios.post(path, payload)
-		// 	.then((res) => {
-		// 		res.data.sort((a, b) => b[1] - a[1]);
-		// 		commit('setFirstGraphDataSetInitial', res.data)
-		// 	})
+		commit('setSelectedDivisionName', payload.division_name)
+		const path = 'http://localhost:5000/fetch_based_on_Division_name';
+		axios.post(path, payload)
+			.then((res) => {
+				// res.data.sort((a, b) => b[1] - a[1]);
+				commit('setFirstGraphDataSetInitial', res.data)
+			})
 	},
 
 };
 
 const mutations = {
 
+	setFirstGraphDataSetInitial(state, data) {
+		state.firstGraphDataSetInitial = data
+	},
 
+	setSelectedDivisionName(state, data) {
+		state.selectedDivisionName = data
+	}
 
 };
 

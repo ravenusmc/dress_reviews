@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 
@@ -13,10 +13,12 @@ app.config.from_object(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 
-# sanity check route
-@app.route('/ping', methods=['GET'])
-def ping_pong():
-    return jsonify('pong!')
+@app.route('/fetch_based_on_Division_name', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        post_data = request.get_json()
+        print(post_data)
+        return jsonify('5')
 
 
 if __name__ == '__main__':

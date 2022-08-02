@@ -2,12 +2,7 @@
   <div>
     <section class="main-section">
       <div class="form-area">
-        <select @change="onChange($event)" v-model="division_name">
-          <option>Please select a Division Name</option>
-          <option v-for="division_name in division_names" :key="division_name">
-            {{ division_name }}
-          </option>
-        </select>
+        <InputDivisionName />
       </div>
       <div class="table-area">
         <GraphCard
@@ -22,12 +17,14 @@
 
 <script>
 import GraphCard from "@/components/Graphs/GraphCard.vue";
+import InputDivisionName from "@/components/data/InputDivisionName.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Main",
   components: {
     GraphCard,
+    InputDivisionName,
   },
   computed: {
     ...mapGetters("data", ["firstGraphDataSetInitial", "division_names"]),
@@ -56,7 +53,6 @@ export default {
   methods: {
     ...mapActions("data", ["changeSelectionBasedOnDivisionName"]),
     onChange(event) {
-      console.log(this.division_name);
       let division_name = this.division_name;
       const payload = {
         division_name,

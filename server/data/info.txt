@@ -34,10 +34,10 @@ Data columns (total 11 columns):
 61, 48, 19, 58, 69, 70, 74, 68, 71, 67, 63, 20, 82, 21, 75, 22, 92, 77, 80, 90, 84, 76, 
 73, 89, 78, 91, 94, 93, 85, 86, 87, 99, 81, 18]
 
-division_name
+division_name - INPUT DONE 
 ['General', 'General Petite', 'Initmates']
 
-department_name
+department_name 
 ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 
 class_name
