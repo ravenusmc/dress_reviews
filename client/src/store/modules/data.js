@@ -11,28 +11,38 @@ const state = {
 		['Not Applicable', 377],
 		['North', 43],
 	],
-	division_names: [
+	divisionNames: [
 		'General', 'General Petite', 'Initmates'
 	],
-	selectedDivisionName: '',
-	department_names: [
+	divisionName: '',
+	departmentNames: [
 		'Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend'
-	], 
-	selectedDepartmentName: '',
+	],
+	departmentName: '',
 };
 
 const getters = {
 	firstGraphDataSetInitial: state => state.firstGraphDataSetInitial,
-	division_names: state => state.division_names,
-	selectedDivisionName: state => state.selectedDivisionName, 
-	department_names: state => state.department_names, 
-	selectedDepartmentName: state => state.selectedDepartmentName,
+	divisionNames: state => state.divisionNames,
+	divisionName: state => state.divisionName,
+	departmentNames: state => state.departmentNames,
+	departmentName: state => state.departmentName,
 };
 
 const actions = {
 
+	fetchInitialTableData: ({ commit }, { payload }) => {
+		console.log('HERE Action')
+		const path = 'http://localhost:5000/fetch_initial_table';
+		axios.post(path, payload)
+			.then((res) => {
+				// res.data.sort((a, b) => b[1] - a[1]);
+				commit('setFirstGraphDataSetInitial', res.data)
+			})
+	},
+
 	changeSelectionBasedOnDivisionName: ({ commit }, { payload }) => {
-		commit('setSelectedDivisionName', payload.division_name)
+		commit('setDivisionName', payload.division_name)
 		const path = 'http://localhost:5000/fetch_based_on_Division_name';
 		axios.post(path, payload)
 			.then((res) => {
@@ -49,7 +59,7 @@ const mutations = {
 		state.firstGraphDataSetInitial = data
 	},
 
-	setSelectedDivisionName(state, data) {
+	setDivisionName(state, data) {
 		state.selectedDivisionName = data
 	}
 

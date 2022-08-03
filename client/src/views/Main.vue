@@ -3,6 +3,7 @@
     <section class="main-section">
       <div class="form-area">
         <InputDivisionName />
+        <InputDepartmentnName />
       </div>
       <div class="table-area">
         <GraphCard
@@ -18,6 +19,7 @@
 <script>
 import GraphCard from "@/components/Graphs/GraphCard.vue";
 import InputDivisionName from "@/components/data/InputDivisionName.vue";
+import InputDepartmentnName from "@/components/data/InputDepartmentName.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -25,9 +27,10 @@ export default {
   components: {
     GraphCard,
     InputDivisionName,
+    InputDepartmentnName,
   },
   computed: {
-    ...mapGetters("data", ["firstGraphDataSetInitial", "division_names"]),
+    ...mapGetters("data", ["firstGraphDataSetInitial", "division_names", "InputDepartmentnName"]),
   },
   data() {
     return {
@@ -51,16 +54,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions("data", ["changeSelectionBasedOnDivisionName"]),
-    onChange(event) {
-      let division_name = this.division_name;
-      const payload = {
-        division_name,
-      };
-      this.changeSelectionBasedOnDivisionName({ payload });
-    },
+    ...mapActions("data", ["fetchInitialTableData"]),
   },
-  created: function () {
+  created() {
+      const payload = {
+        name: 'Mike'
+      };
+    this.fetchInitialTableData({ payload })
     // console.log("HI Now");
   },
 };

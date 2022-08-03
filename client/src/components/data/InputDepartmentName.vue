@@ -1,9 +1,9 @@
 <template>
   <div>
-    <select @change="onChange($event)" v-model="division_name">
-      <option>Please select a Division Name</option>
-      <option v-for="division_name in division_names" :key="division_name">
-        {{ division_name }}
+    <label for="departmentName">Please select a Department Name:</label>
+    <select @change="onChange()" v-model="departmentName">
+      <option v-for="departmentName in departmentNames" :key="departmentName">
+        {{ departmentName }}
       </option>
     </select>
   </div>
@@ -12,23 +12,23 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "InputDivisionName",
+  name: "InputDepartmentName",
   computed: {
-    ...mapGetters("data", ["division_names"]),
+    ...mapGetters("data", ["departmentNames"]),
   },  
   data() {
     return {
-      division_name: "Bottoms",
+      departmentName: "Bottoms",
     };
   }, 
   methods: {
     ...mapActions("data", ["changeSelectionBasedOnDivisionName"]),
-    onChange(event) {
-      let division_name = this.division_name;
+    onChange() {
+      let departmentName = this.departmentName;
       const payload = {
-        division_name,
+        departmentName,
       };
-      this.changeSelectionBasedOnDivisionName({ payload });
+      // this.changeSelectionBasedOnDivisionName({ payload });
     },
   },
 };
