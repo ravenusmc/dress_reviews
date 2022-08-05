@@ -6,3 +6,5 @@ import pandas as pd
 from datetime import datetime
 
 class Data():
+
+		def get_initial_table_data(self):
