@@ -34,7 +34,7 @@ const actions = {
 	fetchInitialTableData: ({ commit }, { payload }) => {
 		console.log('HERE Action')
 		const path = 'http://localhost:5000/fetch_initial_table';
-		axios.post(path, payload)
+		axios.get(path)
 			.then((res) => {
 				// res.data.sort((a, b) => b[1] - a[1]);
 				commit('setFirstGraphDataSetInitial', res.data)
