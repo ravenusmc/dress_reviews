@@ -24,14 +24,14 @@ class Data():
         count = 0
         while count < len(df):
             rows = []
-            age = df.iat[count, 1]
+            age = int(df.iat[count, 1])
             division_name = df.iat[count, 2]
             department_name = df.iat[count, 3]
             class_name = df.iat[count, 4]
             title = df.iat[count, 6]
             review_text = df.iat[count, 7]
-            rating = df.iat[count, 9]
-            recommend_index = df.iat[count, 10]
+            rating = int(df.iat[count, 9])
+            recommend_index = int(df.iat[count, 10])
             rows.append(age)
             rows.append(division_name)
             rows.append(department_name)
@@ -45,5 +45,5 @@ class Data():
         return table_data
 
 
-data = Data()
-data.get_initial_table_data()
+# data = Data()
+# data.get_initial_table_data()

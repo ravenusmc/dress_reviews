@@ -11,6 +11,7 @@ const state = {
 		['Not Applicable', 377],
 		['North', 43],
 	],
+	tableData: [],
 	divisionNames: [
 		'General', 'General Petite', 'Initmates'
 	],
@@ -23,6 +24,7 @@ const state = {
 
 const getters = {
 	firstGraphDataSetInitial: state => state.firstGraphDataSetInitial,
+	tableData: state => state.tableData,
 	divisionNames: state => state.divisionNames,
 	divisionName: state => state.divisionName,
 	departmentNames: state => state.departmentNames,
@@ -36,8 +38,8 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_initial_table';
 		axios.get(path)
 			.then((res) => {
-				// res.data.sort((a, b) => b[1] - a[1]);
-				commit('setFirstGraphDataSetInitial', res.data)
+				console.log(res.data)
+				commit('setTableData', res.data)
 			})
 	},
 
@@ -59,9 +61,13 @@ const mutations = {
 		state.firstGraphDataSetInitial = data
 	},
 
+	setTableData(state, data) {
+		state.tableData = data
+	},
+
 	setDivisionName(state, data) {
 		state.selectedDivisionName = data
-	}
+	},
 
 };
 

@@ -8,7 +8,7 @@
       <div class="table-area">
         <GraphCard
           :typeOne="typeOne"
-          :data="firstGraphDataSetInitial"
+          :data="tableData"
           :options="chartOptionsOne"
         />
       </div>
@@ -30,12 +30,12 @@ export default {
     InputDepartmentnName,
   },
   computed: {
-    ...mapGetters("data", ["firstGraphDataSetInitial", "division_names", "InputDepartmentnName"]),
+    ...mapGetters("data", ["tableData", "division_names", "InputDepartmentnName"]),
   },
   data() {
     return {
       division_name: "Bottoms",
-      typeOne: "ColumnChart",
+      typeOne: "Table",
       chartOptionsOne: {
         title: "Statues in North Vs South",
         legend: { position: "top" },
