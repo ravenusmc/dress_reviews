@@ -15,12 +15,13 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-@app.route('/fetch_initial_table', methods=['GET'])
+@app.route('/fetch_initial_table', methods=['GET', 'POST'])
 def fetch_initial_table():
-    data = Data()
-    table_data = data.get_initial_table_data()
-    print(table_data)
-    return jsonify(table_data)
+    if request.method == 'POST':
+        data = Data()
+        post_data = request.get_json()
+        table_data = data.get_initial_table_data(post_data)
+        return jsonify(table_data)
 
 @app.route('/fetch_based_on_Division_name', methods=['GET', 'POST'])
 def fetch_based_on_Division_name():

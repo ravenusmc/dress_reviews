@@ -30,7 +30,13 @@ export default {
     InputDepartmentnName,
   },
   computed: {
-    ...mapGetters("data", ["tableData", "division_names", "InputDepartmentnName"]),
+    ...mapGetters("data", [
+      "tableData",
+      "division_names",
+      "InputDepartmentnName",
+      "firstValue",
+      "lastValue",
+    ]),
   },
   data() {
     return {
@@ -57,11 +63,11 @@ export default {
     ...mapActions("data", ["fetchInitialTableData"]),
   },
   created() {
-      const payload = {
-        name: 'Mike'
-      };
-    this.fetchInitialTableData({ payload })
-    // console.log("HI Now");
+    const payload = {
+      firstValue: this.firstValue,
+      lastValue: this.lastValue
+    };
+    this.fetchInitialTableData({ payload });
   },
 };
 </script>
@@ -73,10 +79,11 @@ export default {
 }
 
 .form-area {
-  border: 2px solid red;
+  border: 2px solid black;
 }
 
 .table-area {
-  border: 2px solid blue;
+  border: 2px solid black;
 }
+
 </style>

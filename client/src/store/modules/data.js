@@ -5,13 +5,9 @@ import axios from 'axios';
 Vue.use(Vuex)
 
 const state = {
-	firstGraphDataSetInitial: [
-		['Side', 'Count'],
-		['South', 1722],
-		['Not Applicable', 377],
-		['North', 43],
-	],
 	tableData: [],
+	firstValue: 0,
+	lastValue: 20,
 	divisionNames: [
 		'General', 'General Petite', 'Initmates'
 	],
@@ -23,8 +19,9 @@ const state = {
 };
 
 const getters = {
-	firstGraphDataSetInitial: state => state.firstGraphDataSetInitial,
 	tableData: state => state.tableData,
+	firstValue: state => state.firstValue,
+	lastValue: state => state.lastValue,
 	divisionNames: state => state.divisionNames,
 	divisionName: state => state.divisionName,
 	departmentNames: state => state.departmentNames,
@@ -34,11 +31,9 @@ const getters = {
 const actions = {
 
 	fetchInitialTableData: ({ commit }, { payload }) => {
-		console.log('HERE Action')
 		const path = 'http://localhost:5000/fetch_initial_table';
-		axios.get(path)
+		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
 				commit('setTableData', res.data)
 			})
 	},
@@ -57,16 +52,20 @@ const actions = {
 
 const mutations = {
 
-	setFirstGraphDataSetInitial(state, data) {
-		state.firstGraphDataSetInitial = data
-	},
-
 	setTableData(state, data) {
 		state.tableData = data
 	},
 
 	setDivisionName(state, data) {
 		state.selectedDivisionName = data
+	},
+
+	setFirstValue(state, data) {
+		state.firstValue = data
+	},
+
+	setLastValue(state, data) {
+		state.lastValue = data
 	},
 
 };

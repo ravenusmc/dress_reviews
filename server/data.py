@@ -15,11 +15,13 @@ class Data():
         # print(self.data.shape)
         return self.data.dropna()
 
-    def get_initial_table_data(self):
+    def get_initial_table_data(self, post_data):
         data = Data()
         df = data.drop_na()
+        df = df[post_data['firstValue']:post_data['lastValue']]
         table_data = []
-        columns = ['age', 'division_name', 'department_name', 'class_name', 'title', 'review_text', 'rating', 'recommend_index']
+        columns = ['age', 'division_name', 'department_name', 'class_name',
+                   'title', 'review_text', 'rating', 'recommend_index']
         table_data.append(columns)
         count = 0
         while count < len(df):
@@ -41,8 +43,12 @@ class Data():
             rows.append(rating)
             rows.append(recommend_index)
             table_data.append(rows)
-            count += 1 
+            count += 1
         return table_data
+
+    def change_singe_column(self):
+        data = Data()
+        df = data.drop_na()
 
 
 # data = Data()
