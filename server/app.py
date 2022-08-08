@@ -23,11 +23,12 @@ def fetch_initial_table():
         table_data = data.get_initial_table_data(post_data)
         return jsonify(table_data)
 
-@app.route('/fetch_based_on_Division_name', methods=['GET', 'POST'])
-def fetch_based_on_Division_name():
+@app.route('/fetch_based_on_Single_Selection', methods=['GET', 'POST'])
+def fetch_based_on_Single_Selection():
     if request.method == 'POST':
+        data = Data()
         post_data = request.get_json()
-        print(post_data)
+        df_sorted_by_column = data.change_singe_column(post_data)
         return jsonify('5')
 
 

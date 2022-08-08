@@ -14,7 +14,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "InputDivisionName",
   computed: {
-    ...mapGetters("data", ["divisionNames"]),
+    ...mapGetters("data", ["divisionNames", "firstValue", "lastValue"]),
   },
   data() {
     return {
@@ -22,13 +22,16 @@ export default {
     };
   },
   methods: {
-    ...mapActions("data", ["changeSelectionBasedOnDivisionName"]),
+    ...mapActions("data", ["changeDataBasedOnSingleSelection"]),
     onChange() {
-      let divisionName = this.divisionName;
+      let selection = this.divisionName;
       const payload = {
-        divisionName,
+        selection,
+        column: 'division_name',
+        firstValue: this.firstValue,
+        lastValue: this.lastValue,
       };
-      this.changeSelectionBasedOnDivisionName({ payload });
+      this.changeDataBasedOnSingleSelection({ payload });
     },
   },
 };

@@ -46,9 +46,12 @@ class Data():
             count += 1
         return table_data
 
-    def change_singe_column(self):
+    def change_singe_column(self, post_data):
         data = Data()
         df = data.drop_na()
+        df = df[post_data['firstValue']:post_data['lastValue']]
+        df_sorted_by_column = df[(df[post_data['column']] == post_data['selection'])
+        return df_sorted_by_column
 
 
 # data = Data()

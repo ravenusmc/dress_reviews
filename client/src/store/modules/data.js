@@ -38,13 +38,14 @@ const actions = {
 			})
 	},
 
-	changeSelectionBasedOnDivisionName: ({ commit }, { payload }) => {
-		commit('setDivisionName', payload.division_name)
-		const path = 'http://localhost:5000/fetch_based_on_Division_name';
+	changeDataBasedOnSingleSelection: ({ commit }, { payload }) => {
+		console.log(payload)
+		// commit('setDivisionName', payload.division_name)
+		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
 				// res.data.sort((a, b) => b[1] - a[1]);
-				commit('setFirstGraphDataSetInitial', res.data)
+				// commit('setFirstGraphDataSetInitial', res.data)
 			})
 	},
 
