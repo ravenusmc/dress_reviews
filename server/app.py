@@ -29,7 +29,7 @@ def fetch_based_on_Single_Selection():
         data = Data()
         post_data = request.get_json()
         df_sorted_by_column = data.change_singe_column(post_data)
-        return jsonify('5')
+        return jsonify(df_sorted_by_column)
 
 
 if __name__ == '__main__':

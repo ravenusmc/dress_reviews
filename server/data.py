@@ -14,15 +14,8 @@ class Data():
     def drop_na(self):
         # print(self.data.shape)
         return self.data.dropna()
-
-    def get_initial_table_data(self, post_data):
-        data = Data()
-        df = data.drop_na()
-        df = df[post_data['firstValue']:post_data['lastValue']]
-        table_data = []
-        columns = ['age', 'division_name', 'department_name', 'class_name',
-                   'title', 'review_text', 'rating', 'recommend_index']
-        table_data.append(columns)
+    
+    def build_table(self, column_list, df):
         count = 0
         while count < len(df):
             rows = []
@@ -42,16 +35,31 @@ class Data():
             rows.append(review_text)
             rows.append(rating)
             rows.append(recommend_index)
-            table_data.append(rows)
+            column_list.append(rows)
             count += 1
-        return table_data
+        return column_list
+
+    def get_initial_table_data(self, post_data):
+        data = Data()
+        df = data.drop_na()
+        df = df[post_data['firstValue']:post_data['lastValue']]
+        table_data = []
+        columns = ['age', 'division_name', 'department_name', 'class_name',
+                   'title', 'review_text', 'rating', 'recommend_index']
+        table_data.append(columns)
+        return data.build_table(table_data, df)
+
 
     def change_singe_column(self, post_data):
         data = Data()
         df = data.drop_na()
         df = df[post_data['firstValue']:post_data['lastValue']]
-        df_sorted_by_column = df[(df[post_data['column']] == post_data['selection'])
-        return df_sorted_by_column
+        table_data = []
+        columns = ['age', 'division_name', 'department_name', 'class_name',
+                   'title', 'review_text', 'rating', 'recommend_index']
+        table_data.append(columns)
+        df_sorted_by_column = df[(df[post_data['column']] == post_data['selection'])]
+        return data.build_table(table_data, df_sorted_by_column)
 
 
 # data = Data()
