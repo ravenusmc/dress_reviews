@@ -53,12 +53,12 @@ class Data():
     def change_singe_column(self, post_data):
         data = Data()
         df = data.drop_na()
-        df = df[post_data['firstValue']:post_data['lastValue']]
+        df_sorted_by_column = df[(df[post_data['column']] == post_data['selection'])]
+        df_sorted_by_column = df_sorted_by_column[post_data['firstValue']:post_data['lastValue']]
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
                    'title', 'review_text', 'rating', 'recommend_index']
         table_data.append(columns)
-        df_sorted_by_column = df[(df[post_data['column']] == post_data['selection'])]
         return data.build_table(table_data, df_sorted_by_column)
 
 

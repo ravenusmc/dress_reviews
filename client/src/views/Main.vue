@@ -3,7 +3,7 @@
     <section class="main-section">
       <div class="form-area">
         <InputDivisionName />
-        <InputDepartmentnName />
+        <InputDepartmentName />
       </div>
       <div class="table-area">
         <GraphCard
@@ -19,7 +19,7 @@
 <script>
 import GraphCard from "@/components/Graphs/GraphCard.vue";
 import InputDivisionName from "@/components/data/InputDivisionName.vue";
-import InputDepartmentnName from "@/components/data/InputDepartmentName.vue";
+import InputDepartmentName from "@/components/data/InputDepartmentName.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -27,13 +27,13 @@ export default {
   components: {
     GraphCard,
     InputDivisionName,
-    InputDepartmentnName,
+    InputDepartmentName,
   },
   computed: {
     ...mapGetters("data", [
       "tableData",
       "division_names",
-      "InputDepartmentnName",
+      "departmentName",
       "firstValue",
       "lastValue",
     ]),

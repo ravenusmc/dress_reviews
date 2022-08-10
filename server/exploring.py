@@ -48,11 +48,11 @@ class Exploring():
             print(unique_value)
             input()
     
-    def see_distinct_values_for_division_name(self):
+    def see_distinct_values(self):
         exploring = Exploring()
         data = exploring.drop_na() 
         new_dataframe = data[data['division_name'] == 'General'] 
-        unique_department_names = list(data['department_name'].unique())
+        unique_department_names = list(new_dataframe['department_name'].unique())
         print(unique_department_names)
         print('DONE')
         input()
@@ -62,6 +62,13 @@ class Exploring():
 test=Exploring()
 # column_names = test.get_column_names()
 # test.distinct_names_per_column(column_names)
-test.see_distinct_values_for_division_name()
+test.see_distinct_values()
 
-# ['General', 'General Petite', 'Initmates']
+
+# Unique Values: 
+# division_name - general => ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
+# division_name - general Petite => ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
+# division_name - intimates => ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
+
+# Department Name:
+# Bottoms ['General', 'General Petite', 'Initmates'], 
