@@ -38,6 +38,10 @@ class Data():
             column_list.append(rows)
             count += 1
         return column_list
+    
+    def get_distinct_values(self):
+        new_dataframe = df[(df[post_data['column']] == post_data['selection'])]
+        unique_department_names = list(new_dataframe['department_name'].unique())
 
     def get_initial_table_data(self, post_data):
         data = Data()
@@ -51,6 +55,7 @@ class Data():
 
 
     def change_singe_column(self, post_data):
+        print(post_data)
         data = Data()
         df = data.drop_na()
         df_sorted_by_column = df[(df[post_data['column']] == post_data['selection'])]

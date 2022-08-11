@@ -39,12 +39,9 @@ const actions = {
 	},
 
 	changeDataBasedOnSingleSelection: ({ commit }, { payload }) => {
-		console.log(payload)
-		// commit('setDivisionName', payload.division_name)
 		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
 				// res.data.sort((a, b) => b[1] - a[1]);
 				commit('setTableData', res.data)
 			})
