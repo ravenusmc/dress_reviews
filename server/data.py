@@ -39,7 +39,11 @@ class Data():
             count += 1
         return column_list
     
-    def get_distinct_values(self):
+    def get_distinct_values(self, post_data):
+        unique_values_list = []
+        column_names_list = ['division_name', 'department_name', 'class_name']
+        index_selected_column = column_names_list.index(post_data['column'])
+        column_names_list = column_names_list.pop(index_selected_column)
         new_dataframe = df[(df[post_data['column']] == post_data['selection'])]
         unique_department_names = list(new_dataframe['department_name'].unique())
 
@@ -52,7 +56,6 @@ class Data():
                    'title', 'review_text', 'rating', 'recommend_index']
         table_data.append(columns)
         return data.build_table(table_data, df)
-
 
     def change_singe_column(self, post_data):
         print(post_data)
