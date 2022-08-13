@@ -14,7 +14,7 @@ class Data():
     def drop_na(self):
         # print(self.data.shape)
         return self.data.dropna()
-    
+
     def build_table(self, column_list, df):
         count = 0
         while count < len(df):
@@ -38,14 +38,21 @@ class Data():
             column_list.append(rows)
             count += 1
         return column_list
-    
+
     def get_distinct_values(self, post_data):
+        data = Data()
+        df = data.drop_na()
         unique_values_list = []
         column_names_list = ['division_name', 'department_name', 'class_name']
         index_selected_column = column_names_list.index(post_data['column'])
-        column_names_list = column_names_list.pop(index_selected_column)
+        column_names_list.pop(index_selected_column)
         new_dataframe = df[(df[post_data['column']] == post_data['selection'])]
-        unique_department_names = list(new_dataframe['department_name'].unique())
+        for name in column_names_list:
+            unique_names = list(new_dataframe[name].unique())
+            unique_values_list.append(unique_names)
+        column_place_holder = []
+        unique_values_list.insert(index_selected_column, column_place_holder)
+        return unique_values_list
 
     def get_initial_table_data(self, post_data):
         data = Data()
@@ -58,7 +65,6 @@ class Data():
         return data.build_table(table_data, df)
 
     def change_singe_column(self, post_data):
-        print(post_data)
         data = Data()
         df = data.drop_na()
         df_sorted_by_column = df[(df[post_data['column']] == post_data['selection'])]

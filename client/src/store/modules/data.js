@@ -42,8 +42,12 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
-				// res.data.sort((a, b) => b[1] - a[1]);
-				commit('setTableData', res.data)
+				console.log(res.data[0][1])
+				if (res.data[0][0].length != 0){
+					commit('setDepartmentNames', res.data[0][1])
+				}
+				// When division is seleted need to change department name and class name 
+				commit('setTableData', res.data[1])
 			})
 	},
 
@@ -57,6 +61,14 @@ const mutations = {
 
 	setDivisionName(state, data) {
 		state.selectedDivisionName = data
+	},
+
+	setDivisionNames(state, data) {
+		state.divisionNames = data
+	},
+
+	setDepartmentNames(state, data) {
+		state.departmentNames = data
 	},
 
 	setFirstValue(state, data) {
