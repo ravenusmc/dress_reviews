@@ -16,6 +16,12 @@ const state = {
 		'Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend'
 	],
 	departmentName: '',
+	classNames: [
+		'Jeans', 'Blouses', 'Skirts', 'Pants', 'Swim', 'Sweaters', 'Knits', 'Fine gauge', 
+		'Dresses', 'Shorts', 'Jackets', 'Outerwear', 'Lounge', 'Intimates', 'Legwear', 'Trend', 
+		'Sleep', 'Layering', 'Casual bottoms', 'Chemises'
+	],
+	className: '',
 };
 
 const getters = {
@@ -26,6 +32,8 @@ const getters = {
 	divisionName: state => state.divisionName,
 	departmentNames: state => state.departmentNames,
 	departmentName: state => state.departmentName,
+	classNames: state => state.classNames,
+	className: state => state.className
 };
 
 const actions = {
@@ -59,12 +67,12 @@ const mutations = {
 		state.tableData = data
 	},
 
-	setDivisionName(state, data) {
-		state.selectedDivisionName = data
-	},
-
 	setDivisionNames(state, data) {
 		state.divisionNames = data
+	},
+
+	setDivisionName(state, data) {
+		state.selectedDivisionName = data
 	},
 
 	setDepartmentNames(state, data) {

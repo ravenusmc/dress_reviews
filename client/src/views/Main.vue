@@ -4,6 +4,7 @@
       <div class="form-area">
         <InputDivisionName />
         <InputDepartmentName />
+        <InputClassName />
       </div>
       <div class="table-area">
         <GraphCard
@@ -20,6 +21,7 @@
 import GraphCard from "@/components/Graphs/GraphCard.vue";
 import InputDivisionName from "@/components/data/InputDivisionName.vue";
 import InputDepartmentName from "@/components/data/InputDepartmentName.vue";
+import InputClassName from "@/components/data/InputClassName.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -28,6 +30,7 @@ export default {
     GraphCard,
     InputDivisionName,
     InputDepartmentName,
+    InputClassName,
   },
   computed: {
     ...mapGetters("data", [
