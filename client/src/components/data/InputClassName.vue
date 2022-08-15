@@ -1,7 +1,7 @@
 <template>
   <div>
     <label for="className">Please select a Class Name:</label>
-    <select @change="onChange()" v-model="className">
+    <select @change="onChange()" v-model="Name">
       <option v-for="className in classNames" :key="className">
         {{ className }}
       </option>
@@ -14,11 +14,11 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "InputDepartmentName",
   computed: {
-    ...mapGetters("data", ["classNames", "firstValue", "lastValue"]),
+    ...mapGetters("data", ["classNames", "className", "firstValue", "lastValue"]),
   },
   data() {
     return {
-      className: "Jeans",
+      Name: "Jeans",
     };
   },
   methods: {
@@ -32,6 +32,19 @@ export default {
         lastValue: this.lastValue,
       };
       this.changeDataBasedOnSingleSelection({ payload });
+    },
+    changeClassName() {
+      this.Name = this.className
+    },
+  },
+  watch: {
+    className: {
+      handler(value) {
+        if (value) {
+          this.changeClassName();
+        }
+      },
+      immediate: true,
     },
   },
 };

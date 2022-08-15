@@ -50,9 +50,10 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data[0][1])
-				if (res.data[0][0].length != 0){
+				if (res.data[0][0].length == 0){
 					commit('setDepartmentNames', res.data[0][1])
+					commit('setClassNames', res.data[0][2])
+					commit('setClassName', res.data[0][2][0])
 				}
 				// When division is seleted need to change department name and class name 
 				commit('setTableData', res.data[1])
@@ -77,6 +78,14 @@ const mutations = {
 
 	setDepartmentNames(state, data) {
 		state.departmentNames = data
+	},
+
+	setClassNames(state, data) {
+		state.classNames = data
+	},
+
+	setClassName(state, data) {
+		state.className = data
 	},
 
 	setFirstValue(state, data) {
