@@ -28,6 +28,7 @@ def fetch_based_on_Single_Selection():
     if request.method == 'POST':
         data = Data()
         post_data = request.get_json()
+        print(post_data)
         unique_values_list = data.get_distinct_values(post_data)
         df_sorted_by_column = data.change_singe_column(post_data)
         data_container = []

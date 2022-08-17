@@ -24,7 +24,7 @@ export default {
   methods: {
     ...mapActions("data", ["changeDataBasedOnSingleSelection"]),
     onChange() {
-      let selection = this.departmentName;
+      let selection = this.Name;
       const payload = {
         selection,
         column: "department_name",
