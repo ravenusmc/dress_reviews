@@ -34,6 +34,7 @@ def fetch_based_on_Single_Selection():
         data_container = []
         data_container.append(unique_values_list)
         data_container.append(df_sorted_by_column)
+        data_container.append(post_data['selection'])
         return jsonify(data_container)
 
 

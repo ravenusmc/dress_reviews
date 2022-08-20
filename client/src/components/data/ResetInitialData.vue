@@ -13,10 +13,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "ResetInitialData",
   computed: {
-    ...mapGetters("data", [
-      "firstValue",
-      "lastValue",
-    ]),
+    ...mapGetters("data", ["firstValue", "lastValue"]),
   },
   methods: {
     ...mapActions("data", ["fetchInitialTableData"]),

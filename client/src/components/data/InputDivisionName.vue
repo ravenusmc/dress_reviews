@@ -46,6 +46,7 @@ export default {
     divisionName: {
       handler(value) {
         if (value) {
+          console.log('here CHNAGE')
           this.changeDivisionName();
         }
       },
