@@ -3,6 +3,7 @@
     <section class="main-section">
       <div class="form-area">
         <ResetInitialData />
+        <InputAgeRange />
         <InputDivisionName />
         <InputDepartmentName />
         <InputClassName />
@@ -21,6 +22,7 @@
 <script>
 import GraphCard from "@/components/Graphs/GraphCard.vue";
 import ResetInitialData from "@/components/data/ResetInitialData.vue";
+import InputAgeRange from "@/components/data/InputAgeRange.vue";
 import InputDivisionName from "@/components/data/InputDivisionName.vue";
 import InputDepartmentName from "@/components/data/InputDepartmentName.vue";
 import InputClassName from "@/components/data/InputClassName.vue";
@@ -31,6 +33,7 @@ export default {
   components: {
     GraphCard,
     ResetInitialData,
+    InputAgeRange,
     InputDivisionName,
     InputDepartmentName,
     InputClassName,
