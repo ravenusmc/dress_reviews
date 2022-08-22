@@ -57,12 +57,20 @@ class Exploring():
         print('DONE')
         input()
         new_dataframe.to_csv('exploring_data.csv', encoding='utf-8', index=False)
+    
+    def get_min_max_values_by_column(self):
+        exploring = Exploring()
+        data = exploring.drop_na() 
+        min_value = data['age'].min()
+        max_value = data['age'].max()
+        print(min_value)
+        print(max_value)
 
 
 test=Exploring()
 # column_names = test.get_column_names()
 # test.distinct_names_per_column(column_names)
-test.see_distinct_values()
+test.get_min_max_values_by_column()
 
 
 # Unique Values: 

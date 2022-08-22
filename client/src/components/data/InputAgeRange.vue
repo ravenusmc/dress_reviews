@@ -7,8 +7,8 @@
         id="quantity"
         v-model="ageOne"
         name="ageOne"
-        min="0"
-        max="100"
+        min="18"
+        max="99"
       />
       <label for="ageTwo">Second Age Value:</label>
       <input
@@ -16,8 +16,8 @@
         id="ageTwo"
         v-model="ageTwo"
         name="ageTwo"
-        min="0"
-        max="100"
+        min="18"
+        max="99"
       />
       <button class="btn btn-success">Submit</button>
     </form>
@@ -25,24 +25,33 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "InputAgeRange",
   data() {
     return {
-      ageOne: 0,
-      ageTwo: 100,
+      ageOne: 18,
+      ageTwo: 99,
     };
   },
+  computed: {
+    ...mapGetters("data", ["tableData", "firstValue", "lastValue"]),
+  },
   methods: {
+    ...mapActions("data", ["fetchDataBasedOnAge"]),
     submitSelectedAges(evt) {
       evt.preventDefault();
       let ageOne = Number(this.ageOne);
       let ageTwo = Number(this.ageTwo);
       const payload = {
+        tableData: this.tableData,
         ageOne,
         ageTwo,
-			};
-			console.log(payload)
+        firstValue: this.firstValue,
+        lastValue: this.lastValue,
+      };
+      this.fetchDataBasedOnAge({ payload });
     },
   },
 };

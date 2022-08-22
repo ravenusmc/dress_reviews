@@ -89,6 +89,28 @@ const actions = {
 			})
 	},
 
+	fetchDataBasedOnAge: ({ commit }, { payload }) => {
+		console.log(payload)
+		// const path = 'http://localhost:5000/fetch_initial_table';
+		// axios.post(path, payload)
+		// 	.then((res) => {
+		// 		commit('setTableData', res.data)
+		// 		let originalDivisionNames = ['General', 'General Petite', 'Initmates']
+		// 		let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
+		// 		let originalClassNames = [
+		// 			'Jeans', 'Blouses', 'Skirts', 'Pants', 'Swim', 'Sweaters', 'Knits', 'Fine gauge', 
+		// 			'Dresses', 'Shorts', 'Jackets', 'Outerwear', 'Lounge', 'Intimates', 'Legwear', 'Trend', 
+		// 			'Sleep', 'Layering', 'Casual bottoms', 'Chemises'
+		// 		]
+		// 		commit('setDivisionNames', originalDivisionNames)
+		// 		commit('setDivisionName', "General")
+		// 		commit('setDepartmentNames', originalDepartmentNames)
+		// 		commit('setDepartmentName', "Bottoms")
+		// 		commit('setClassNames', originalClassNames)
+		// 		commit('setClassName', "Jeans")
+		// 	})
+	},
+
 };
 
 const mutations = {

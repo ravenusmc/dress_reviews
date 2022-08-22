@@ -54,3 +54,6 @@ recommend_index
 [1, 0]
 
 npm uninstall vue-google-charts --save
+
+Reference:
+https://github.com/ravenusmc/statues/blob/main/client/src/components/data/graphone/FormOne.vue
