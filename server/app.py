@@ -38,5 +38,15 @@ def fetch_based_on_Single_Selection():
         return jsonify(data_container)
 
 
+@app.route('/fetch_data_based_on_age', methods=['GET', 'POST'])
+def fetch_data_based_on_age():
+    if request.method == 'POST':
+        data = Data()
+        post_data = request.get_json()
+        print(post_data)
+        return jsonify('5')
+
+
+
 if __name__ == '__main__':
     app.run()
