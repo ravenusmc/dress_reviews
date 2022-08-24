@@ -43,7 +43,8 @@ def fetch_data_based_on_age():
     if request.method == 'POST':
         data = Data()
         post_data = request.get_json()
-        print(post_data)
+        print(post_data['tableData'])
+        data.get_data_based_on_age(post_data)
         return jsonify('5')
 
 

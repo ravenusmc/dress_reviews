@@ -75,6 +75,11 @@ class Data():
         table_data.append(columns)
         return data.build_table(table_data, df_sorted_by_column)
 
+    def get_data_based_on_age(self, post_data):
+        df = pd.DataFrame (post_data['tableData'], columns = ['age', 'division_name', 'department_name','class_name','title','review_text','rating','recommend_index'])
+        print(df.head())
+
+
 
 # data = Data()
 # data.get_initial_table_data()
