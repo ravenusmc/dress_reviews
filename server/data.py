@@ -76,8 +76,11 @@ class Data():
         return data.build_table(table_data, df_sorted_by_column)
 
     def get_data_based_on_age(self, post_data):
+        post_data['tableData'].pop(0)
         df = pd.DataFrame (post_data['tableData'], columns = ['age', 'division_name', 'department_name','class_name','title','review_text','rating','recommend_index'])
-        new_dataframe = df[(df[post_data['column']] == post_data['selection'])]
+        df['age'].astype(int)
+        return df[(df['age'] >= int(post_data['ageOne'])) & (df['age'] <= int(post_data['ageTwo']))]
+
 
 
 

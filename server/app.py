@@ -28,7 +28,6 @@ def fetch_based_on_Single_Selection():
     if request.method == 'POST':
         data = Data()
         post_data = request.get_json()
-        print(post_data)
         unique_values_list = data.get_distinct_values(post_data)
         df_sorted_by_column = data.change_singe_column(post_data)
         data_container = []
@@ -43,7 +42,8 @@ def fetch_data_based_on_age():
     if request.method == 'POST':
         data = Data()
         post_data = request.get_json()
-        data.get_data_based_on_age(post_data)
+        age_data_set = data.get_data_based_on_age(post_data)
+        print(age_data_set)
         return jsonify('5')
 
 
