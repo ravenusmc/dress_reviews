@@ -36,7 +36,14 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("data", ["tableData", "firstValue", "lastValue"]),
+    ...mapGetters("data", [
+      "tableData",
+      "firstValue",
+      "lastValue",
+      "divisionName",
+      "departmentName",
+      "className",
+    ]),
   },
   methods: {
     ...mapActions("data", ["fetchDataBasedOnAge"]),
@@ -50,6 +57,9 @@ export default {
         ageTwo,
         firstValue: this.firstValue,
         lastValue: this.lastValue,
+        divisionName: this.divisionName,
+        departmentName: this.departmentName,
+        className: this.className,
       };
       this.fetchDataBasedOnAge({ payload });
     },

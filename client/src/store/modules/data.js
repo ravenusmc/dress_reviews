@@ -63,7 +63,6 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
 				if (res.data[0][0].length == 0){
 					commit('setDivisionName', res.data[2])
 					commit('setDepartmentNames', res.data[0][1])
