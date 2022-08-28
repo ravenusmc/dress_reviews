@@ -84,15 +84,13 @@ class Data():
             df['department_name'] == post_data['departmentName']) & (df['class_name'] == post_data['className'])]
         incremental_data_set = filtered_data_set[post_data['firstValue']:post_data['lastValue']]
         incremental_data_set['age'].astype(int)
-        return incremental_data_set[(incremental_data_set['age'] >= int(post_data['ageOne'])) & (df['age'] <= int(post_data['ageTwo']))]
-
-    # I'm keeping this method here because I may go back to this method or use it at some future date.
-    def get_data_based_on_age_old(self, post_data):
-        post_data['tableData'].pop(0)
-        df = pd.DataFrame(post_data['tableData'], columns=[
-                          'age', 'division_name', 'department_name', 'class_name', 'title', 'review_text', 'rating', 'recommend_index'])
-        df['age'].astype(int)
-        return df[(df['age'] >= int(post_data['ageOne'])) & (df['age'] <= int(post_data['ageTwo']))]
+        age_data_set = incremental_data_set[(incremental_data_set['age'] >= int(post_data['ageOne'])) & (
+            df['age'] <= int(post_data['ageTwo']))]
+        table_data = []
+        columns = ['age', 'division_name', 'department_name', 'class_name',
+                   'title', 'review_text', 'rating', 'recommend_index']
+        table_data.append(columns)
+        return data.build_table(table_data, age_data_set)
 
 
 # data = Data()
