@@ -4,7 +4,6 @@
       <label for="ageOne">First Age Value:</label>
       <input
         type="number"
-        id="quantity"
         v-model="ageOne"
         name="ageOne"
         min="18"
