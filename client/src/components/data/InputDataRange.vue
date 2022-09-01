@@ -62,8 +62,6 @@ export default {
     ...mapActions("data", ["fetchDataBasedOnAge"]),
     submitDataRange(evt) {
       evt.preventDefault();
-      let firstValue = Number(this.firstValue);
-      let secondValue = Number(this.secondValue);
       // const payload = {
       //   tableData: this.tableData,
       //   ageOne,
@@ -77,8 +75,18 @@ export default {
       // this.fetchDataBasedOnAge({ payload });
     },
     changeRange(direction) {
-      console.log('HI')
-      console.log(direction)
+      let newFirstValue = 0
+      let newLastValue = 0 
+      if (direction === 'up') {
+        newFirstValue = this.firstValue + 20
+        newLastValue = this.lastValue + 20
+      } else {
+        newFirstValue = this.firstValue - 20
+        newLastValue = this.lastValue - 20 
+      }
+      if (newFirstValue < 0) {
+        alert("You cannot go less than zero")
+      }
     }
   },
 };
