@@ -86,6 +86,8 @@ export default {
       }
       if (newFirstValue < 0) {
         alert("You cannot go less than zero")
+      }else {
+        
       }
     }
   },
