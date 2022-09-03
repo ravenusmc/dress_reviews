@@ -60,20 +60,6 @@ export default {
   },
   methods: {
     ...mapActions("data", ["fetchDataBasedOnAge"]),
-    submitDataRange(evt) {
-      evt.preventDefault();
-      // const payload = {
-      //   tableData: this.tableData,
-      //   ageOne,
-      //   ageTwo,
-      //   firstValue: this.firstValue,
-      //   lastValue: this.lastValue,
-      //   divisionName: this.divisionName,
-      //   departmentName: this.departmentName,
-      //   className: this.className,
-      // };
-      // this.fetchDataBasedOnAge({ payload });
-    },
     changeRange(direction) {
       let newFirstValue = 0
       let newLastValue = 0 
@@ -87,7 +73,16 @@ export default {
       if (newFirstValue < 0) {
         alert("You cannot go less than zero")
       }else {
-        
+      //   tableData: this.tableData,
+      //   ageOne,
+      //   ageTwo,
+      //   firstValue: this.firstValue,
+      //   lastValue: this.lastValue,
+      //   divisionName: this.divisionName,
+      //   departmentName: this.departmentName,
+      //   className: this.className,
+      // };
+      // this.fetchDataBasedOnAge({ payload });
       }
     }
   },
