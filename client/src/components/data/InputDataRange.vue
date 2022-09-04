@@ -76,13 +76,13 @@ export default {
       //   tableData: this.tableData,
       //   ageOne,
       //   ageTwo,
-      //   firstValue: this.firstValue,
+      //   firstValue: new
       //   lastValue: this.lastValue,
       //   divisionName: this.divisionName,
       //   departmentName: this.departmentName,
       //   className: this.className,
       // };
-      // this.fetchDataBasedOnAge({ payload });
+      // this.changeDataBasedOnRange({ payload });
       }
     }
   },

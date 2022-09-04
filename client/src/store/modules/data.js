@@ -17,8 +17,8 @@ const state = {
 	],
 	departmentName: '',
 	classNames: [
-		'Jeans', 'Blouses', 'Skirts', 'Pants', 'Swim', 'Sweaters', 'Knits', 'Fine gauge', 
-		'Dresses', 'Shorts', 'Jackets', 'Outerwear', 'Lounge', 'Intimates', 'Legwear', 'Trend', 
+		'Jeans', 'Blouses', 'Skirts', 'Pants', 'Swim', 'Sweaters', 'Knits', 'Fine gauge',
+		'Dresses', 'Shorts', 'Jackets', 'Outerwear', 'Lounge', 'Intimates', 'Legwear', 'Trend',
 		'Sleep', 'Layering', 'Casual bottoms', 'Chemises'
 	],
 	className: '',
@@ -46,8 +46,8 @@ const actions = {
 				let originalDivisionNames = ['General', 'General Petite', 'Initmates']
 				let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 				let originalClassNames = [
-					'Jeans', 'Blouses', 'Skirts', 'Pants', 'Swim', 'Sweaters', 'Knits', 'Fine gauge', 
-					'Dresses', 'Shorts', 'Jackets', 'Outerwear', 'Lounge', 'Intimates', 'Legwear', 'Trend', 
+					'Jeans', 'Blouses', 'Skirts', 'Pants', 'Swim', 'Sweaters', 'Knits', 'Fine gauge',
+					'Dresses', 'Shorts', 'Jackets', 'Outerwear', 'Lounge', 'Intimates', 'Legwear', 'Trend',
 					'Sleep', 'Layering', 'Casual bottoms', 'Chemises'
 				]
 				commit('setDivisionNames', originalDivisionNames)
@@ -63,21 +63,21 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
-				if (res.data[0][0].length == 0){
+				if (res.data[0][0].length == 0) {
 					commit('setDivisionName', res.data[2])
 					commit('setDepartmentNames', res.data[0][1])
 					commit('setDepartmentName', res.data[0][1][0])
 					commit('setClassNames', res.data[0][2])
 					commit('setClassName', res.data[0][2][0])
 				}
-				if (res.data[0][1].length == 0){
+				if (res.data[0][1].length == 0) {
 					commit('setDivisionNames', res.data[0][0])
 					commit('setDivisionName', res.data[0][0][0])
 					commit('setDepartmentName', res.data[2])
 					commit('setClassNames', res.data[0][2])
 					commit('setClassName', res.data[0][2][0])
 				}
-				if (res.data[0][2].length == 0){
+				if (res.data[0][2].length == 0) {
 					commit('setDivisionNames', res.data[0][0])
 					commit('setDivisionName', res.data[0][0][0])
 					commit('setDepartmentNames', res.data[0][1])
@@ -108,6 +108,27 @@ const actions = {
 				// commit('setClassName', "Jeans")
 			})
 	},
+
+	changeDataBasedOnRange: ({ commit }, { payload }) => {
+		const path = 'http://localhost:5000/get_data_based_off_selection';
+		axios.post(path, payload)
+			.then((res) => {
+				commit('setTableData', res.data)
+				// let originalDivisionNames = ['General', 'General Petite', 'Initmates']
+				// let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
+				// let originalClassNames = [
+				// 	'Jeans', 'Blouses', 'Skirts', 'Pants', 'Swim', 'Sweaters', 'Knits', 'Fine gauge', 
+				// 	'Dresses', 'Shorts', 'Jackets', 'Outerwear', 'Lounge', 'Intimates', 'Legwear', 'Trend', 
+				// 	'Sleep', 'Layering', 'Casual bottoms', 'Chemises'
+				// ]
+				// commit('setDivisionNames', originalDivisionNames)
+				// commit('setDivisionName', "General")
+				// commit('setDepartmentNames', originalDepartmentNames)
+				// commit('setDepartmentName', "Bottoms")
+				// commit('setClassNames', originalClassNames)
+				// commit('setClassName', "Jeans")
+			})
+	}
 
 };
 

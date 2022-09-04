@@ -92,6 +92,10 @@ class Data():
         table_data.append(columns)
         return data.build_table(table_data, age_data_set)
 
+    def get_data_based_off_selection(self, post_data):
+        data = Data()
+        df = data.drop_na()
+
 
 # data = Data()
 # data.get_initial_table_data()
