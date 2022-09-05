@@ -1,6 +1,5 @@
 <template>
   <div>
-    <form @submit="submitDataRange">
       <p>{{ firstValue }}</p>
       <p>{{ lastValue }}</p>
       <button @click="changeRange('up')" type="button" class="btn btn-secondary">
@@ -33,7 +32,6 @@
           />
         </svg>
       </button>
-    </form>
   </div>
 </template>
 

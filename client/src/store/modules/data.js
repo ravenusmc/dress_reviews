@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 const state = {
 	tableData: [],
+	dataLength: 0,
 	firstValue: 0,
 	lastValue: 20,
 	divisionNames: [
@@ -26,6 +27,7 @@ const state = {
 
 const getters = {
 	tableData: state => state.tableData,
+	dataLength: state => state.dataLength,
 	firstValue: state => state.firstValue,
 	lastValue: state => state.lastValue,
 	divisionNames: state => state.divisionNames,
@@ -43,6 +45,7 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				commit('setTableData', res.data)
+				commit('setDataLength', res.data.length)
 				let originalDivisionNames = ['General', 'General Petite', 'Initmates']
 				let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 				let originalClassNames = [
@@ -136,6 +139,10 @@ const mutations = {
 
 	setTableData(state, data) {
 		state.tableData = data
+	},
+
+	setDataLength(state, data) {
+		state.dataLength = data
 	},
 
 	setDivisionNames(state, data) {
