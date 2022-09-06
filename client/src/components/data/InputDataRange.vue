@@ -54,11 +54,13 @@ export default {
       "divisionName",
       "departmentName",
       "className",
+      "dataLength",
     ]),
   },
   methods: {
     ...mapActions("data", ["fetchDataBasedOnAge"]),
     changeRange(direction) {
+
       let newFirstValue = 0
       let newLastValue = 0 
       if (direction === 'up') {

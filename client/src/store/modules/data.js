@@ -88,6 +88,7 @@ const actions = {
 					commit('setClassName', res.data[2])
 				}
 				commit('setTableData', res.data[1])
+				commit('setDataLength', res.data[1].length)
 			})
 	},
 
@@ -96,6 +97,7 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				commit('setTableData', res.data)
+				commit('setDataLength', res.data.length)
 				// let originalDivisionNames = ['General', 'General Petite', 'Initmates']
 				// let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 				// let originalClassNames = [
@@ -117,6 +119,7 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				commit('setTableData', res.data)
+				commit('setDataLength', res.data.length)
 				// let originalDivisionNames = ['General', 'General Petite', 'Initmates']
 				// let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 				// let originalClassNames = [
