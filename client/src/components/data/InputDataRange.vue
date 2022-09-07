@@ -60,7 +60,7 @@ export default {
   methods: {
     ...mapActions("data", ["fetchDataBasedOnAge"]),
     changeRange(direction) {
-
+      console.log(this.dataLength)
       let newFirstValue = 0
       let newLastValue = 0 
       if (direction === 'up') {

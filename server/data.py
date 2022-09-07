@@ -57,25 +57,29 @@ class Data():
     def get_initial_table_data(self, post_data):
         data = Data()
         df = data.drop_na()
+        dataset_total_length = len(df)
         df = df[post_data['firstValue']:post_data['lastValue']]
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
                    'title', 'review_text', 'rating', 'recommend_index']
         table_data.append(columns)
-        return data.build_table(table_data, df)
+        column_list = data.build_table(table_data, df)
+        return column_list, dataset_total_length
 
     def change_singe_column(self, post_data):
         data = Data()
         df = data.drop_na()
         df_sorted_by_column = df[(
             df[post_data['column']] == post_data['selection'])]
+        dataset_total_length = len(df_sorted_by_column)
         df_sorted_by_column = df_sorted_by_column[post_data['firstValue']
             :post_data['lastValue']]
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
                    'title', 'review_text', 'rating', 'recommend_index']
         table_data.append(columns)
-        return data.build_table(table_data, df_sorted_by_column)
+        column_list = data.build_table(table_data, df_sorted_by_column)
+        return column_list, dataset_total_length 
 
     def get_data_based_on_age(self, post_data):
         data = Data()

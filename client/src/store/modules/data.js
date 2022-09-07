@@ -44,8 +44,8 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_initial_table';
 		axios.post(path, payload)
 			.then((res) => {
-				commit('setTableData', res.data)
-				commit('setDataLength', res.data.length)
+				commit('setTableData', res.data[0])
+				commit('setDataLength', res.data[1])
 				let originalDivisionNames = ['General', 'General Petite', 'Initmates']
 				let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 				let originalClassNames = [
@@ -66,6 +66,7 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
+				console.log(res.data[3])
 				if (res.data[0][0].length == 0) {
 					commit('setDivisionName', res.data[2])
 					commit('setDepartmentNames', res.data[0][1])
@@ -88,7 +89,7 @@ const actions = {
 					commit('setClassName', res.data[2])
 				}
 				commit('setTableData', res.data[1])
-				commit('setDataLength', res.data[1].length)
+				commit('setDataLength', res.data[3])
 			})
 	},
 
@@ -115,7 +116,7 @@ const actions = {
 	},
 
 	changeDataBasedOnRange: ({ commit }, { payload }) => {
-		const path = 'http://localhost:5000/get_data_based_off_selection';
+		const path = 'http://localhost:5000/get_data_based_off_range_selection';
 		axios.post(path, payload)
 			.then((res) => {
 				commit('setTableData', res.data)
