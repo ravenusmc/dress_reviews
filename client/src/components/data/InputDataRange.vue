@@ -1,7 +1,8 @@
 <template>
   <div>
-      <p>{{ firstValue }}</p>
-      <p>{{ lastValue }}</p>
+      <h6>The data set has a total of </h6>
+      <p>Current First Value: {{ firstValue }}</p>
+      <p>Current Last Value: {{ lastValue }}</p>
       <button @click="changeRange('up')" type="button" class="btn btn-secondary">
         <svg
           xmlns="http://www.w3.org/2000/svg"
