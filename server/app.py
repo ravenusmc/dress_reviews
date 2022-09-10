@@ -46,8 +46,11 @@ def fetch_data_based_on_age():
     if request.method == 'POST':
         data = Data()
         post_data = request.get_json()
-        age_data_set = data.get_data_based_on_age(post_data)
-        return jsonify(age_data_set)
+        age_data_set, dataset_total_length = data.get_data_based_on_age(post_data)
+        data_container = []
+        data_container.append(age_data_set)
+        data_container.append(dataset_total_length)
+        return jsonify(data_container)
 
 @app.route('/get_data_based_off_range_selection', methods=['GET', 'POST'])
 def get_data_based_off_selection():

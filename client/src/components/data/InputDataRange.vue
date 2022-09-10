@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h6>The data set has a total of </h6>
+      <h6>The data set has a total of {{ dataLength }} </h6>
       <p>Current First Value: {{ firstValue }}</p>
       <p>Current Last Value: {{ lastValue }}</p>
       <button @click="changeRange('up')" type="button" class="btn btn-secondary">

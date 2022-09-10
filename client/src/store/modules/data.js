@@ -66,7 +66,6 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_based_on_Single_Selection';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data[3])
 				if (res.data[0][0].length == 0) {
 					commit('setDivisionName', res.data[2])
 					commit('setDepartmentNames', res.data[0][1])
@@ -97,8 +96,8 @@ const actions = {
 		const path = 'http://localhost:5000/fetch_data_based_on_age';
 		axios.post(path, payload)
 			.then((res) => {
-				commit('setTableData', res.data)
-				commit('setDataLength', res.data.length)
+				commit('setTableData', res.data[0])
+				commit('setDataLength', res.data[1])
 				// let originalDivisionNames = ['General', 'General Petite', 'Initmates']
 				// let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 				// let originalClassNames = [

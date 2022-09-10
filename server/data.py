@@ -79,26 +79,28 @@ class Data():
                    'title', 'review_text', 'rating', 'recommend_index']
         table_data.append(columns)
         column_list = data.build_table(table_data, df_sorted_by_column)
-        return column_list, dataset_total_length 
+        return column_list, dataset_total_length
 
     def get_data_based_on_age(self, post_data):
         data = Data()
         df = data.drop_na()
         filtered_data_set = df[(df['division_name'] == post_data['divisionName']) & (
             df['department_name'] == post_data['departmentName']) & (df['class_name'] == post_data['className'])]
-        incremental_data_set = filtered_data_set[post_data['firstValue']:post_data['lastValue']]
-        incremental_data_set['age'].astype(int)
-        age_data_set = incremental_data_set[(incremental_data_set['age'] >= int(post_data['ageOne'])) & (
-            df['age'] <= int(post_data['ageTwo']))]
+        filtered_data_set['age'].astype(int)
+        age_data_set = filtered_data_set[(filtered_data_set['age'] >= int(post_data['ageOne'])) & (
+            filtered_data_set['age'] <= int(post_data['ageTwo']))]
+        incremental_data_set = age_data_set[post_data['firstValue']:post_data['lastValue']]
+        dataset_total_length = len(incremental_data_set)
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
                    'title', 'review_text', 'rating', 'recommend_index']
         table_data.append(columns)
-        return data.build_table(table_data, age_data_set)
+        column_list = data.build_table(table_data, incremental_data_set)
+        return column_list, dataset_total_length
 
     def get_data_based_off_selection(self, post_data):
-        data = Data()
-        df = data.drop_na()
+        data=Data()
+        df=data.drop_na()
 
 
 # data = Data()
