@@ -59,11 +59,14 @@ export default {
       "departmentName",
       "className",
       "dataLength",
+      "firstAgeValue",
+      "secondAgeValue",
     ]),
   },
   methods: {
     ...mapActions("data", ["fetchDataBasedOnAge"]),
     changeRange(direction) {
+      console.log(this.firstAgeValue)
       let newFirstValue = 0;
       let newLastValue = 0;
       if (direction === "up") {

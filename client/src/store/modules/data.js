@@ -9,6 +9,8 @@ const state = {
 	dataLength: 0,
 	firstValue: 0,
 	lastValue: 20,
+	firstAgeValue: 18,
+	secondAgeValue: 99,
 	divisionNames: [
 		'General', 'General Petite', 'Initmates'
 	],
@@ -30,6 +32,8 @@ const getters = {
 	dataLength: state => state.dataLength,
 	firstValue: state => state.firstValue,
 	lastValue: state => state.lastValue,
+	firstAgeValue: state => state.firstAgeValue,
+	secondAgeValue: state => state.secondAgeValue, 
 	divisionNames: state => state.divisionNames,
 	divisionName: state => state.divisionName,
 	departmentNames: state => state.departmentNames,
@@ -93,6 +97,8 @@ const actions = {
 	},
 
 	fetchDataBasedOnAge: ({ commit }, { payload }) => {
+		commit('setFirstAge', payload.ageOne)
+		commit('secondAgeValue', payload.ageTwo)
 		const path = 'http://localhost:5000/fetch_data_based_on_age';
 		axios.post(path, payload)
 			.then((res) => {
@@ -146,6 +152,14 @@ const mutations = {
 
 	setDataLength(state, data) {
 		state.dataLength = data
+	},
+
+	setFirstAge(state, data) {
+		state.firstAgeValue = data
+	},
+
+	setSecondAgeValue(state, data) {
+		state.secondAgeValue = data
 	},
 
 	setDivisionNames(state, data) {
