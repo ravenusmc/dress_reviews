@@ -57,7 +57,7 @@ def get_data_based_off_selection():
     if request.method == 'POST':
         data = Data()
         post_data = request.get_json()
-        # age_data_set = data.get_data_based_on_age(post_data)
+        range_data_set = data.get_data_all_values(post_data)
         return jsonify('5')
 
 

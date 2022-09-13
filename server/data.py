@@ -72,8 +72,7 @@ class Data():
         df_sorted_by_column = df[(
             df[post_data['column']] == post_data['selection'])]
         dataset_total_length = len(df_sorted_by_column)
-        df_sorted_by_column = df_sorted_by_column[post_data['firstValue']
-            :post_data['lastValue']]
+        df_sorted_by_column = df_sorted_by_column[post_data['firstValue']                                                  :post_data['lastValue']]
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
                    'title', 'review_text', 'rating', 'recommend_index']
@@ -89,7 +88,8 @@ class Data():
         filtered_data_set['age'].astype(int)
         age_data_set = filtered_data_set[(filtered_data_set['age'] >= int(post_data['ageOne'])) & (
             filtered_data_set['age'] <= int(post_data['ageTwo']))]
-        incremental_data_set = age_data_set[post_data['firstValue']:post_data['lastValue']]
+        incremental_data_set = age_data_set[post_data['firstValue']
+            :post_data['lastValue']]
         dataset_total_length = len(incremental_data_set)
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
@@ -98,10 +98,20 @@ class Data():
         column_list = data.build_table(table_data, incremental_data_set)
         return column_list, dataset_total_length
 
-    def get_data_based_off_selection(self, post_data):
-        data=Data()
-        df=data.drop_na()
-
+    def get_data_all_values(self, post_data):
+        print(post_data)
+        data = Data()
+        df = data.drop_na()
+        data = Data()
+        df = data.drop_na()
+        filtered_data_set = df[(df['division_name'] == post_data['divisionName']) & (
+            df['department_name'] == post_data['departmentName']) & (df['class_name'] == post_data['className'])]
+        filtered_data_set['age'].astype(int)
+        age_filtered_data_set = filtered_data_set[(filtered_data_set['age'] >= int(post_data['firstAge'])) & (
+            filtered_data_set['age'] <= int(post_data['SecondAge']))]
+        print(age_filtered_data_set.head())
+    
+#{'newFirstValue': 20, 'newLastValue': 40, 'firstAge': 18, 'SecondAge': 99, 'divisionName': 'Initmates', 'departmentName': 'Intimate', 'className': 'Swim'}  
 
 # data = Data()
 # data.get_initial_table_data()

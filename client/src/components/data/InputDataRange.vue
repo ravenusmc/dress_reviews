@@ -64,7 +64,7 @@ export default {
     ]),
   },
   methods: {
-    ...mapActions("data", ["fetchDataBasedOnAge"]),
+    ...mapActions("data", ["changeDataBasedOnRange"]),
     changeRange(direction) {
       console.log(this.firstAgeValue)
       let newFirstValue = 0;
@@ -80,12 +80,15 @@ export default {
         alert("You cannot go less than zero");
       } else {
         const payload = {
-          selection,
-          column: "class_name",
-          firstValue: this.firstValue,
-          lastValue: this.lastValue,
+          newFirstValue,
+          newLastValue,
+          firstAge: this.firstAgeValue,
+          SecondAge: this.secondAgeValue,
+          divisionName: this.divisionName,
+          departmentName: this.departmentName, 
+          className: this.className,
         };
-        // this.changeDataBasedOnRange({ payload });
+        this.changeDataBasedOnRange({ payload });
       }
     },
   },
