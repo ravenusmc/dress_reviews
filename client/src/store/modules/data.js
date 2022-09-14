@@ -124,8 +124,8 @@ const actions = {
 		const path = 'http://localhost:5000/get_data_based_off_range_selection';
 		axios.post(path, payload)
 			.then((res) => {
-				commit('setTableData', res.data)
-				commit('setDataLength', res.data.length)
+				commit('setTableData', res.data[0])
+				commit('setDataLength', res.data[1])
 				// let originalDivisionNames = ['General', 'General Petite', 'Initmates']
 				// let originalDepartmentNames = ['Bottoms', 'Tops', 'Intimate', 'Dresses', 'Jackets', 'Trend']
 				// let originalClassNames = [
