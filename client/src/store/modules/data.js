@@ -121,6 +121,8 @@ const actions = {
 	},
 
 	changeDataBasedOnRange: ({ commit }, { payload }) => {
+		commit('setFirstValue', payload['newFirstValue'])
+		commit('setLastValue', payload['newLastValue'])
 		const path = 'http://localhost:5000/get_data_based_off_range_selection';
 		axios.post(path, payload)
 			.then((res) => {
