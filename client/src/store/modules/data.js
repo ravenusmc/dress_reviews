@@ -63,6 +63,10 @@ const actions = {
 				commit('setDepartmentName', "Bottoms")
 				commit('setClassNames', originalClassNames)
 				commit('setClassName', "Jeans")
+				commit('setFirstValue', 0)
+				commit('setLastValue', 20)
+				commit('setFirstAge', 18)
+				commit('setSecondAgeValue', 99)
 			})
 	},
 
@@ -98,7 +102,7 @@ const actions = {
 
 	fetchDataBasedOnAge: ({ commit }, { payload }) => {
 		commit('setFirstAge', payload.ageOne)
-		commit('secondAgeValue', payload.ageTwo)
+		commit('setSecondAgeValue', payload.ageTwo)
 		const path = 'http://localhost:5000/fetch_data_based_on_age';
 		axios.post(path, payload)
 			.then((res) => {

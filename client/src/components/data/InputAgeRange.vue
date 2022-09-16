@@ -42,6 +42,8 @@ export default {
       "divisionName",
       "departmentName",
       "className",
+      "firstAgeValue",
+      "secondAgeValue",
     ]),
   },
   methods: {
@@ -61,6 +63,30 @@ export default {
         className: this.className,
       };
       this.fetchDataBasedOnAge({ payload });
+    },
+    changeFirstAge() {
+      this.ageOne = this.firstAgeValue
+    },
+    changeSecondAge() {
+      this.ageTwo = this.secondAgeValue
+    }
+  },
+  watch: {
+    firstAgeValue: {
+      handler(value) {
+        if (value) {
+          this.changeFirstAge();
+        }
+      },
+      immediate: true,
+    },
+    secondAgeValue: {
+      handler(value) {
+        if (value) {
+          this.changeSecondAge();
+        }
+      },
+      immediate: true,
     },
   },
 };
