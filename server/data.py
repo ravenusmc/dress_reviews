@@ -88,9 +88,9 @@ class Data():
         filtered_data_set['age'].astype(int)
         age_data_set = filtered_data_set[(filtered_data_set['age'] >= int(post_data['ageOne'])) & (
             filtered_data_set['age'] <= int(post_data['ageTwo']))]
+        dataset_total_length = len(age_data_set)
         incremental_data_set = age_data_set[post_data['firstValue']
             :post_data['lastValue']]
-        dataset_total_length = len(incremental_data_set)
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
                    'title', 'review_text', 'rating', 'recommend_index']
@@ -106,9 +106,9 @@ class Data():
         filtered_data_set['age'].astype(int)
         age_filtered_data_set = filtered_data_set[(filtered_data_set['age'] >= int(post_data['firstAge'])) & (
             filtered_data_set['age'] <= int(post_data['SecondAge']))]
+        dataset_total_length = len(age_filtered_data_set)
         incremental_data_set = age_filtered_data_set[post_data['newFirstValue']
             :post_data['newLastValue']]
-        dataset_total_length = len(incremental_data_set)
         table_data = []
         columns = ['age', 'division_name', 'department_name', 'class_name',
                    'title', 'review_text', 'rating', 'recommend_index']
