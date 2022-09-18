@@ -116,7 +116,6 @@ class Data():
         column_list = data.build_table(table_data, incremental_data_set)
         return column_list, dataset_total_length
     
-#{'newFirstValue': 20, 'newLastValue': 40, 'firstAge': 18, 'SecondAge': 99, 'divisionName': 'Initmates', 'departmentName': 'Intimate', 'className': 'Swim'}  
 
 # data = Data()
 # data.get_initial_table_data()

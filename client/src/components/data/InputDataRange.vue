@@ -2,7 +2,12 @@
   <div>
     <h6>The current data set has {{ dataLength }} rows</h6>
     <p>Showing rows {{ firstValue }} - {{ lastValue }}</p>
-    <button @click="changeRange('up')" type="button" class="btn btn-secondary">
+    <button
+      @click="changeRange('up')"
+      type="button"
+      class="btn btn-secondary"
+      v-if="!hideUpButton"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -21,6 +26,7 @@
       @click="changeRange('down')"
       type="button"
       class="btn btn-secondary"
+      v-if="!hideDownButton"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -46,6 +52,8 @@ export default {
   name: "",
   data() {
     return {
+      hideUpButton: false,
+      hideDownButton: true,
       // firstValue: 0,
       // secondValue: 20,
     };
@@ -66,30 +74,49 @@ export default {
   methods: {
     ...mapActions("data", ["changeDataBasedOnRange"]),
     changeRange(direction) {
-      console.log(this.firstAgeValue)
       let newFirstValue = 0;
-      let newLastValue = 0;
+      let newLastValue = 20;
+      // let originalFirstValue = 0;
+      // let originalLastValue = 0;
+
       if (direction === "up") {
         newFirstValue = this.firstValue + 20;
         newLastValue = this.lastValue + 20;
-      } else {
-        newFirstValue = this.firstValue - 20;
-        newLastValue = this.lastValue - 20;
+        this.hideDownButton = false;
+      } else if (this.lastValue > 20) {
+        if (this.lastValue - this.firstValue > 0) {
+          newLastValue = this.firstValue;
+          this.hideUpButton = false;
+          this.hideDownButton = true;
+        } else {
+          newFirstValue = this.firstValue - 20;
+          newLastValue = this.lastValue - 20;
+        }
       }
-      if (newFirstValue < 0) {
+      console.log(newLastValue);
+
+      if (newFirstValue < 0 || newLastValue < 0) {
         alert("You cannot go less than zero");
-      } else {
-        const payload = {
-          newFirstValue,
-          newLastValue,
-          firstAge: this.firstAgeValue,
-          SecondAge: this.secondAgeValue,
-          divisionName: this.divisionName,
-          departmentName: this.departmentName, 
-          className: this.className,
-        };
-        this.changeDataBasedOnRange({ payload });
+      } else if (newLastValue > this.dataLength) {
+        // originalFirstValue = newFirstValue;
+        newFirstValue = newLastValue - 20;
+        // originalLastValue = newLastValue;
+        newLastValue = this.dataLength;
+        this.hideUpButton = true;
       }
+      console.log(newLastValue);
+      const payload = {
+        newFirstValue,
+        newLastValue,
+        // originalFirstValue,
+        // originalLastValue,
+        firstAge: this.firstAgeValue,
+        SecondAge: this.secondAgeValue,
+        divisionName: this.divisionName,
+        departmentName: this.departmentName,
+        className: this.className,
+      };
+      this.changeDataBasedOnRange({ payload });
     },
   },
 };
