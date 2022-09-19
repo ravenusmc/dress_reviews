@@ -79,6 +79,12 @@ export default {
       // let originalFirstValue = 0;
       // let originalLastValue = 0;
 
+      // Have to deal with the situation if the dataset has a length of 20 or less
+      // Will probably have to do this in an action. 
+      if (this.dataLength < this.lastValue) {
+        this.hideUpButton = true
+      }
+
       if (direction === "up") {
         newFirstValue = this.firstValue + 20;
         newLastValue = this.lastValue + 20;

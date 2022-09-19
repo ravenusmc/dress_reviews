@@ -100,12 +100,23 @@ const actions = {
 			})
 	},
 
-	fetchDataBasedOnAge: ({ commit }, { payload }) => {
+
+	changeLastValue: ({ commit }, { payload }) => {
+		commit('setLastValue', payload['lastValue'])
+	},
+
+	fetchDataBasedOnAge: ({ commit, dispatch }, { payload }) => {
 		commit('setFirstAge', payload.ageOne)
 		commit('setSecondAgeValue', payload.ageTwo)
 		const path = 'http://localhost:5000/fetch_data_based_on_age';
 		axios.post(path, payload)
 			.then((res) => {
+				if (res.data[1] < 20) {
+					const payload = {
+						lastValue: res.data[1],
+					}
+					dispatch('changeLastValue', { payload })
+				}
 				commit('setTableData', res.data[0])
 				commit('setDataLength', res.data[1])
 				// let originalDivisionNames = ['General', 'General Petite', 'Initmates']
