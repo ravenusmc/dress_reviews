@@ -52,7 +52,7 @@ export default {
   name: "",
   data() {
     return {
-      hideUpButton: false,
+      // hideUpButton: false,
       hideDownButton: true,
       // firstValue: 0,
       // secondValue: 20,
@@ -63,6 +63,7 @@ export default {
       "tableData",
       "firstValue",
       "lastValue",
+      "hideUpButton",
       "divisionName",
       "departmentName",
       "className",
@@ -76,16 +77,18 @@ export default {
     changeRange(direction) {
       let newFirstValue = 0;
       let newLastValue = 20;
-      // let originalFirstValue = 0;
-      // let originalLastValue = 0;
 
-      // Have to deal with the situation if the dataset has a length of 20 or less
-      // Will probably have to do this in an action. 
-      if (this.dataLength < this.lastValue) {
-        this.hideUpButton = true
+      if (this.dataLength < 20) {
+        console.log('HERE')
+        this.hideUpButton = true;
       }
 
-      if (direction === "up") {
+      // if (this.dataLength < this.lastValue) {
+      //   this.hideUpButton = true;
+      // }
+
+      if (direction === "up" && this.lastValue == 20) {
+        console.log("here");
         newFirstValue = this.firstValue + 20;
         newLastValue = this.lastValue + 20;
         this.hideDownButton = false;

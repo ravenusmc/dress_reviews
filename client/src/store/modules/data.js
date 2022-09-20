@@ -9,6 +9,7 @@ const state = {
 	dataLength: 0,
 	firstValue: 0,
 	lastValue: 20,
+	hideUpButton: false, 
 	firstAgeValue: 18,
 	secondAgeValue: 99,
 	divisionNames: [
@@ -32,6 +33,7 @@ const getters = {
 	dataLength: state => state.dataLength,
 	firstValue: state => state.firstValue,
 	lastValue: state => state.lastValue,
+	hideUpButton: state => state.hideUpButton,
 	firstAgeValue: state => state.firstAgeValue,
 	secondAgeValue: state => state.secondAgeValue, 
 	divisionNames: state => state.divisionNames,
@@ -103,6 +105,11 @@ const actions = {
 
 	changeLastValue: ({ commit }, { payload }) => {
 		commit('setLastValue', payload['lastValue'])
+
+	},
+
+	hideUpButton: ({ commit }) => {
+		commit('setHideUpButton', true)
 	},
 
 	fetchDataBasedOnAge: ({ commit, dispatch }, { payload }) => {
@@ -116,6 +123,7 @@ const actions = {
 						lastValue: res.data[1],
 					}
 					dispatch('changeLastValue', { payload })
+					dispatch('hideUpButton')
 				}
 				commit('setTableData', res.data[0])
 				commit('setDataLength', res.data[1])
@@ -215,6 +223,10 @@ const mutations = {
 
 	setLastValue(state, data) {
 		state.lastValue = data
+	},
+
+	setHideUpButton(state, data) {
+		state.hideUpButton = data
 	},
 
 };
