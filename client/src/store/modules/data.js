@@ -10,6 +10,7 @@ const state = {
 	firstValue: 0,
 	lastValue: 20,
 	hideUpButton: false, 
+	hideDownButton: true,
 	firstAgeValue: 18,
 	secondAgeValue: 99,
 	divisionNames: [
@@ -34,6 +35,7 @@ const getters = {
 	firstValue: state => state.firstValue,
 	lastValue: state => state.lastValue,
 	hideUpButton: state => state.hideUpButton,
+	hideDownButton: state => state.hideDownButton,
 	firstAgeValue: state => state.firstAgeValue,
 	secondAgeValue: state => state.secondAgeValue, 
 	divisionNames: state => state.divisionNames,
@@ -105,11 +107,22 @@ const actions = {
 
 	changeLastValue: ({ commit }, { payload }) => {
 		commit('setLastValue', payload['lastValue'])
-
 	},
 
-	hideUpButton: ({ commit }) => {
+	coverUpButton: ({ commit }) => {
 		commit('setHideUpButton', true)
+	},
+
+	showUpButton: ({ commit }) => {
+		commit('setHideUpButton', false)
+	},
+
+	coverDownButton: ({ commit }) => {
+		commit('setHideDownButton', true)
+	},
+
+	showDownButton: ({ commit }) => {
+		commit('setHideDownButton', false)
 	},
 
 	fetchDataBasedOnAge: ({ commit, dispatch }, { payload }) => {
@@ -123,7 +136,13 @@ const actions = {
 						lastValue: res.data[1],
 					}
 					dispatch('changeLastValue', { payload })
-					dispatch('hideUpButton')
+					dispatch('coverUpButton')
+				}else {
+					const payload = {
+						lastValue: 20,
+					}
+					dispatch('changeLastValue', { payload })
+					dispatch('showUpButton')
 				}
 				commit('setTableData', res.data[0])
 				commit('setDataLength', res.data[1])
@@ -146,12 +165,6 @@ const actions = {
 	changeDataBasedOnRange: ({ commit }, { payload }) => {
 		commit('setFirstValue', payload['newFirstValue'])
 		commit('setLastValue', payload['newLastValue'])
-		// if ((payload['newFirstValue'] - payload['newLastValue']) < 20) {
-		// 	commit('setFirstValue', payload['originalFirstValue'])
-		// 	commit('setLastValue', payload['originalLastValue'])
-		// } else {
-
-		// }
 		const path = 'http://localhost:5000/get_data_based_off_range_selection';
 		axios.post(path, payload)
 			.then((res) => {
@@ -227,6 +240,11 @@ const mutations = {
 
 	setHideUpButton(state, data) {
 		state.hideUpButton = data
+	},
+
+	setHideDownButton(state, data) {
+		console.log('dasdad')
+		state.hideDownButton = data
 	},
 
 };

@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       // hideUpButton: false,
-      hideDownButton: true,
+      // hideDownButton: true,
       // firstValue: 0,
       // secondValue: 20,
     };
@@ -64,6 +64,7 @@ export default {
       "firstValue",
       "lastValue",
       "hideUpButton",
+      "hideDownButton",
       "divisionName",
       "departmentName",
       "className",
@@ -73,47 +74,38 @@ export default {
     ]),
   },
   methods: {
-    ...mapActions("data", ["changeDataBasedOnRange"]),
+    ...mapActions("data", ["changeDataBasedOnRange", "coverDownButton", "showDownButton"]),
     changeRange(direction) {
       let newFirstValue = 0;
       let newLastValue = 20;
-
-      if (this.dataLength < 20) {
-        console.log('HERE')
-        this.hideUpButton = true;
-      }
 
       // if (this.dataLength < this.lastValue) {
       //   this.hideUpButton = true;
       // }
 
       if (direction === "up" && this.lastValue == 20) {
-        console.log("here");
         newFirstValue = this.firstValue + 20;
         newLastValue = this.lastValue + 20;
-        this.hideDownButton = false;
+        this.showDownButton()
       } else if (this.lastValue > 20) {
         if (this.lastValue - this.firstValue > 0) {
           newLastValue = this.firstValue;
-          this.hideUpButton = false;
-          this.hideDownButton = true;
+          // this.hideUpButton = false;
+          // this.hideDownButton = true;
         } else {
           newFirstValue = this.firstValue - 20;
           newLastValue = this.lastValue - 20;
         }
       }
-      console.log(newLastValue);
 
       if (newFirstValue < 0 || newLastValue < 0) {
         alert("You cannot go less than zero");
       } else if (newLastValue > this.dataLength) {
-        // originalFirstValue = newFirstValue;
         newFirstValue = newLastValue - 20;
-        // originalLastValue = newLastValue;
         newLastValue = this.dataLength;
-        this.hideUpButton = true;
+        // this.hideUpButton = true;
       }
-      console.log(newLastValue);
+
       const payload = {
         newFirstValue,
         newLastValue,
