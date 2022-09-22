@@ -243,7 +243,6 @@ const mutations = {
 	},
 
 	setHideDownButton(state, data) {
-		console.log('dasdad')
 		state.hideDownButton = data
 	},
 
