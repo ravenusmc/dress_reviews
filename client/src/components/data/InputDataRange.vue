@@ -76,6 +76,7 @@ export default {
   methods: {
     ...mapActions("data", [
       "changeDataBasedOnRange",
+      "showUpButton",
       "coverUpButton",
       "coverDownButton",
       "showDownButton",
@@ -101,6 +102,10 @@ export default {
         newFirstValue = newLastValue - 20;
         newLastValue = this.dataLength;
         this.coverUpButton()
+      }
+
+      if (newFirstValue == 0 && newLastValue == 20) {
+        this.showUpButton()
       }
 
       // if (this.dataLength < this.lastValue) {
