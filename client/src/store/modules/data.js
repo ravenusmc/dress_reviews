@@ -165,7 +165,14 @@ const actions = {
 	changeDataBasedOnRange: ({ commit }, { payload }) => {
 		commit('setFirstValue', payload['newFirstValue'])
 		commit('setLastValue', payload['newLastValue'])
-		const path = 'http://localhost:5000/get_data_based_off_range_selection';
+		let path = ''
+		if (payload['dataLength'] == 19662) {
+			payload['firstValue']  = payload['newFirstValue']
+			payload['lastValue'] = payload['newLastValue']
+			path = 'http://localhost:5000/fetch_initial_table'
+		}else {
+			path = 'http://localhost:5000/get_data_based_off_range_selection';
+		}
 		axios.post(path, payload)
 			.then((res) => {
 				commit('setTableData', res.data[0])

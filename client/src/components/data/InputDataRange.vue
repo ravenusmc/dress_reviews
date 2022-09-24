@@ -85,14 +85,15 @@ export default {
       let newFirstValue = 0;
       let newLastValue = 20;
 
-      console.log(this.dataLength);
-
       if (direction === "up") {
         newFirstValue = this.firstValue + 20;
         newLastValue = this.lastValue + 20;
         this.showDownButton();
       } else if (direction === "down" && this.firstValue - 20 == 0) {
         this.coverDownButton();
+      }else if (direction === "down" && (this.lastValue - this.dataLength) < 20 ) {
+        newFirstValue = this.firstValue - 20;
+        newLastValue = newFirstValue + 20;
       } else if (direction === "down") {
         newFirstValue = this.firstValue - 20;
         newLastValue = this.lastValue - 20;
@@ -108,32 +109,6 @@ export default {
         this.showUpButton()
       }
 
-      // if (this.dataLength < this.lastValue) {
-      //   this.hideUpButton = true;
-      // }
-      // if (direction === "up" && this.lastValue == 20) {
-      //   newFirstValue = this.firstValue + 20;
-      //   newLastValue = this.lastValue + 20;
-      //   this.showDownButton()
-      // } else if (this.lastValue > 20) {
-      //   if (this.lastValue - this.firstValue > 0) {
-      //     newLastValue = this.firstValue;
-      //     // this.hideUpButton = false;
-      //     // this.hideDownButton = true;
-      //   } else {
-      //     newFirstValue = this.firstValue - 20;
-      //     newLastValue = this.lastValue - 20;
-      //   }
-      // }
-
-      // if (newFirstValue < 0 || newLastValue < 0) {
-      //   alert("You cannot go less than zero");
-      // } else if (newLastValue > this.dataLength) {
-      //   newFirstValue = newLastValue - 20;
-      //   newLastValue = this.dataLength;
-      //   // this.hideUpButton = true;
-      // }
-
       const payload = {
         newFirstValue,
         newLastValue,
@@ -142,6 +117,7 @@ export default {
         divisionName: this.divisionName,
         departmentName: this.departmentName,
         className: this.className,
+        dataLength: this.dataLength
       };
       this.changeDataBasedOnRange({ payload });
     },
