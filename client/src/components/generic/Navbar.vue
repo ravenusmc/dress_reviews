@@ -35,6 +35,11 @@
               <router-link to="/main">Data</router-link>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <router-link to="/graphs">Graphs</router-link>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
