@@ -65,12 +65,21 @@ class Exploring():
         max_value = data['age'].max()
         print(min_value)
         print(max_value)
+    
+    def sentiment_by_rating(self):
+        exploring = Exploring()
+        df = exploring.drop_na() 
+        ratings = [1,2,3,4,5]
+        for rating in ratings: 
+            df_sorted_by_rating = df[(df['rating'] == rating)]
+            #Once I have a the DF sorted by rating I loop through the review_text
+            # column and get the average sentiment on each column I then put that 
+            # Sentiment into a list, get the average and return that for the value 
+            # then do the same thing on the next rating.  
 
 
 test=Exploring()
-# column_names = test.get_column_names()
-# test.distinct_names_per_column(column_names)
-test.get_min_max_values_by_column()
+test.sentiment_by_rating()
 
 
 # Unique Values: 
