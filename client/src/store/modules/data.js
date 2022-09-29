@@ -27,6 +27,14 @@ const state = {
 		'Sleep', 'Layering', 'Casual bottoms', 'Chemises'
 	],
 	className: '',
+	sentiment: [
+		['rating', 'Sentiment'], 
+		[1, 0.05529], 
+		[2, 0.09062], 
+		[3, 0.13436],
+		[4, 0.19299], 
+		[5, 0.2583]
+	],
 };
 
 const getters = {
@@ -43,7 +51,8 @@ const getters = {
 	departmentNames: state => state.departmentNames,
 	departmentName: state => state.departmentName,
 	classNames: state => state.classNames,
-	className: state => state.className
+	className: state => state.className,
+	sentiment: state => state.sentiment, 
 };
 
 const actions = {
