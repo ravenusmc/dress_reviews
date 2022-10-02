@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 import GraphCard from "@/components/Graphs/GraphCard.vue";
 
 export default {
@@ -22,8 +22,15 @@ export default {
       chartOptionsOne: {
         title: "Sentiment by Rating",
         legend: { position: "top" },
-        colors: ["#f24867"],
+        colors: ["#50A8F1"],
         height: 500,
+        width: 650,
+        vAxes: {
+          0: { title: "Sentiment" },
+        },
+        hAxes: {
+          0: { title: "Rating" },
+        },
         animation: {
           duration: 1000,
           easing: "linear",
