@@ -43,12 +43,9 @@ class Sentiment():
         average_sentiment = sum(sentiment_by_rating)/len(sentiment_by_rating)
         average_sentiment_formatted = float(format(average_sentiment, '.5f'))
         return average_sentiment_formatted
-
-        # Once I have a the DF sorted by rating I loop through the review_text
-        # column and get the average sentiment on each column I then put that
-        # Sentiment into a list, get the average and return that for the value
-        # then do the same thing on the next rating.
-
+    
+    def get_word_count(self, )
+    
 
 test = Sentiment()
 test.sentiment_by_rating()
