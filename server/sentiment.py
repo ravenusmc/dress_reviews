@@ -53,11 +53,17 @@ class Sentiment():
         for rating in ratings:
             rows = []
             df_sorted_by_rating = df[(df['rating'] == rating)]
-            exploring.build_word_list(df_sorted_by_rating)
+            words = exploring.build_word_list(df_sorted_by_rating)
             # exploring.clean_word_list()
     
     def build_word_list(self, df_sorted_by_rating):
-        print(df_sorted_by_rating.head())
+        words = []
+        # review_text
+        for text in df_sorted_by_rating['review_text']:
+            temp_list = []
+            temp_list = text.split()
+            words.extend(temp_list)
+        return words 
 
     def clean_word_list(self, word_list, speech):
         word_and_count = {}
