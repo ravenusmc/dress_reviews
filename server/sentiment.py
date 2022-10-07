@@ -54,7 +54,9 @@ class Sentiment():
             rows = []
             df_sorted_by_rating = df[(df['rating'] == rating)]
             words = exploring.build_word_list(df_sorted_by_rating)
-            # exploring.clean_word_list()
+            word_and_count = exploring.clean_word_list(words)
+            print(word_and_count)
+            input()
     
     def build_word_list(self, df_sorted_by_rating):
         words = []
@@ -65,16 +67,20 @@ class Sentiment():
             words.extend(temp_list)
         return words 
 
-    def clean_word_list(self, word_list, speech):
+    def clean_word_list(self, words):
+        print(words)
         word_and_count = {}
         len_count = 0
         # looping through the list
-        while len_count < len(word_list):
+        print(len(words))
+        input()
+        while len_count < len(words):
+            print(len_count)
             word_count = 0
             # I assign the current_word to the current position of the word_count counter
-            current_word = word_list[len_count].lower()
+            current_word = words[len_count].lower()
             # I then loop through the words again seeing is certain conditions are met.
-            for word in word_list:
+            for word in words:
                 word = word.lower()
                 if (current_word == word and current_word != 'and' and current_word != 'the' and current_word != 'The'
                     and current_word != 'on' and current_word != 'of' and current_word != 'But' and current_word != 'from' and current_word != 'any'
@@ -96,13 +102,11 @@ class Sentiment():
                     and current_word != 'should' and current_word != 'come' and current_word != 'during' and current_word != 'been'
                     and current_word != 'among' and current_word != 'toward' and current_word != 'there' and current_word != 'only'
                     and current_word != 'become' and current_word != 'may' and current_word != 'need' and current_word != 'between'
-                        and current_word != 'every' and current_word != 'other' and current_word != 'yet' and current_word != 'let'):
+                    and current_word != 'every' and current_word != 'other' and current_word != 'yet' and current_word != 'let'
+                    and current_word != 'they' and current_word != 'was' and current_word != 'too' and current_word != 'very'
+                    and current_word != 'at' and current_word != 'would' and current_word != 'just'):
                     word_count += 1
-                    if (speech == self.GettysburgAddress and word_count > 2):
-                        word_and_count[current_word] = word_count
-                    elif (speech == self.dreamSpeech and word_count > 4):
-                        word_and_count[current_word] = word_count
-                    elif (speech == self.military and word_count > 3):
+                    if word_count > 125:
                         word_and_count[current_word] = word_count
             len_count += 1
         return word_and_count
