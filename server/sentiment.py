@@ -104,13 +104,31 @@ class Sentiment():
                     and current_word != 'become' and current_word != 'may' and current_word != 'need' and current_word != 'between'
                     and current_word != 'every' and current_word != 'other' and current_word != 'yet' and current_word != 'let'
                     and current_word != 'they' and current_word != 'was' and current_word != 'too' and current_word != 'very'
-                    and current_word != 'at' and current_word != 'would' and current_word != 'just'):
+                    and current_word != 'at' and current_word != 'would' and current_word != 'just' and current_word != "it's"
+                    and current_word != 'when' and current_word != 'if' and current_word != 'you' and current_word != 'had'
+                    and current_word != "I'm" and current_word != "am" and current_word != "it." and current_word != "out"
+                    and current_word != "i'm" and current_word != "really" and current_word != "an" and current_word != "even"
+                    and current_word != "were"    ):
                     word_count += 1
-                    if word_count > 125:
+                    if word_count > 90:
                         word_and_count[current_word] = word_count
             len_count += 1
         return word_and_count
+    
+    def build_chart_data_from_dictionary(self, word_and_count):
+        chartData = []
+        columns = ['Word', 'Count']
+        chartData.append(columns)
+        for word, count in word_and_count.items():
+            rows = []
+            rows.append(word)
+            rows.append(count)
+            chartData.append(rows)
+        print(chartData)
+        return chartData
 
 
 test = Sentiment()
-test.get_word_count()
+# test.get_word_count()
+word_and_count = {'small': 96, 'looked': 115, 'fabric': 178, 'ordered': 144, 'size': 131, 'dress': 248, 'material': 105, 'one': 113, 'top': 175, 'wear': 114, 'fit': 153, 'looks': 142, 'shirt': 105, 'look': 127}
+test.build_chart_data_from_dictionary(word_and_count)
