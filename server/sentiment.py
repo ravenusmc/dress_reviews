@@ -4,6 +4,7 @@ import pandas as pd
 import json
 import datetime
 from textblob import TextBlob
+import operator
 
 # This class will deal with a majority of the data processing that this project will
 # handle.
@@ -48,14 +49,15 @@ class Sentiment():
     def get_word_count(self):
         exploring = Sentiment()
         df = exploring.drop_na()
-        ratings = [1, 2, 3, 4, 5]
+        ratings = [2, 3, 4, 5]
         # Wow...this code is the same as two methods above...maybe write a new method???
         for rating in ratings:
             rows = []
             df_sorted_by_rating = df[(df['rating'] == rating)]
             words = exploring.build_word_list(df_sorted_by_rating)
             word_and_count = exploring.clean_word_list(words)
-            print(word_and_count)
+            chartData = exploring.build_chart_data_from_dictionary(word_and_count)
+            print(chartData)
             input()
     
     def build_word_list(self, df_sorted_by_rating):
@@ -116,19 +118,19 @@ class Sentiment():
         return word_and_count
     
     def build_chart_data_from_dictionary(self, word_and_count):
+        sorted_word_and_count = sorted(word_and_count.items(), key=operator.itemgetter(1))
         chartData = []
         columns = ['Word', 'Count']
         chartData.append(columns)
-        for word, count in word_and_count.items():
+        for element in sorted_word_and_count:
             rows = []
-            rows.append(word)
-            rows.append(count)
+            rows.append(element[0])
+            rows.append(element[1])
             chartData.append(rows)
-        print(chartData)
         return chartData
 
 
 test = Sentiment()
-# test.get_word_count()
-word_and_count = {'small': 96, 'looked': 115, 'fabric': 178, 'ordered': 144, 'size': 131, 'dress': 248, 'material': 105, 'one': 113, 'top': 175, 'wear': 114, 'fit': 153, 'looks': 142, 'shirt': 105, 'look': 127}
-test.build_chart_data_from_dictionary(word_and_count)
+test.get_word_count()
+# word_and_count = {'small': 96, 'looked': 115, 'fabric': 178, 'ordered': 144, 'size': 131, 'dress': 248, 'material': 105, 'one': 113, 'top': 175, 'wear': 114, 'fit': 153, 'looks': 142, 'shirt': 105, 'look': 127}
+# test.build_chart_data_from_dictionary(word_and_count)

@@ -16,19 +16,19 @@ const state = {
 	ratingOneWords: [
 		['Word', 'Count'], 
 		['small', 96], 
-		['looked', 115], 
-		['fabric', 178], 
-		['ordered', 144], 
-		['size', 131], 
-		['dress', 248], 
 		['material', 105], 
-		['one', 113], 
-		['top', 175], 
-		['wear', 114], 
-		['fit', 153], 
-		['looks', 142], 
 		['shirt', 105], 
-		['look', 127]
+		['one', 113], 
+		['wear', 114], 
+		['looked', 115], 
+		['look', 127], 
+		['size', 131], 
+		['looks', 142], 
+		['ordered', 144], 
+		['fit', 153], 
+		['top', 175], 
+		['fabric', 178], 
+		['dress', 248]
 	],
 };
 
