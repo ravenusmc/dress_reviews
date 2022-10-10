@@ -110,7 +110,11 @@ class Sentiment():
                     and current_word != 'when' and current_word != 'if' and current_word != 'you' and current_word != 'had'
                     and current_word != "I'm" and current_word != "am" and current_word != "it." and current_word != "out"
                     and current_word != "i'm" and current_word != "really" and current_word != "an" and current_word != "even"
-                    and current_word != "were"    ):
+                    and current_word != "were" and current_word != "after" and current_word != "still" and current_word != "got" 
+                    and current_word != "bit" and current_word != "however," and current_word != "get" and current_word != "usally"
+                    and current_word != "about" and current_word != "them" and current_word != "don't" and current_word != "didn't"
+                    and current_word != "way" and current_word != "were" and current_word != "because" and current_word != "than"
+                    and current_word != "much" and current_word != "-"):
                     word_count += 1
                     if word_count > 90:
                         word_and_count[current_word] = word_count

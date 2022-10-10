@@ -1,13 +1,10 @@
 <template>
   <div>
     <h1>Graphs</h1>
-		<SentimentGraph />
-    <RatingsGraph />
-    <!-- Need a graph showing the common words by graph rating 
-			-This graph will change based off the rating that the user selects. 
-		Need a graph showing the common sentiment by rating 
-		rating - 1 - sentiment: X
-		rating - 2 - sentiment: A... -->
+    <section>
+      <SentimentGraph />
+      <RatingsGraph />
+    </section>
   </div>
 </template>
 
@@ -25,4 +22,8 @@ export default {
 </script>
 
 <style scoped>
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 </style>
