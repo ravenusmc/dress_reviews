@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GChart :type="typeOne" :data="ratingOneWords" :options="chartOptionsOne" />
+    <GChart :type="typeOne" :data="currentSelectedWords" :options="chartOptionsOne" />
     <form @submit="submitRatingSelection">
       <label for="ratings">Pick a rating:</label>
       <input type="number" v-model="rating" name="rating" min="1" max="5" />
@@ -19,7 +19,11 @@ export default {
     GraphCard,
   },
   computed: {
-    ...mapGetters("text", ["ratingOneWords", "ratingTwoWords"]),
+    ...mapGetters("text", [
+      // "ratingOneWords",
+      // "ratingTwoWords",
+      "currentSelectedWords",
+    ]),
   },
   data() {
     return {
@@ -50,15 +54,22 @@ export default {
     };
   },
   methods: {
-    ...mapActions("data", ["fetchDataBasedOnAge"]),
+    ...mapActions("text", ["changeRatingsValue"]),
     submitRatingSelection(evt) {
       evt.preventDefault();
       const payload = {
-        ratings: this.rating,
+        ratings: Number(this.rating),
       };
-      console.log(payload);
-      // this.fetchDataBasedOnAge({ payload });
+      this.changeRatingsValue({ payload });
     },
+  },
+  beforeMount() {
+    const payload = {
+      ratings: 1,
+    };
+    if (this.currentSelectedWords.length === 0) {
+      this.changeRatingsValue({ payload });
+    }
   },
 };
 </script>
