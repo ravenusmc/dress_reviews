@@ -34,10 +34,6 @@ class Exploring():
         exploring = Exploring()
         data = exploring.drop_na()
         return list(data.columns)
-        print(column_names)
-        # for col in data.columns:
-        #     print(col)
-        #     input()
 
     def distinct_names_per_column(self, column_names):
         exploring = Exploring()

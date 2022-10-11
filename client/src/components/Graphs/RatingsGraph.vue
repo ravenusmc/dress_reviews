@@ -20,8 +20,6 @@ export default {
   },
   computed: {
     ...mapGetters("text", [
-      // "ratingOneWords",
-      // "ratingTwoWords",
       "currentSelectedWords",
     ]),
   },

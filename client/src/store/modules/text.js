@@ -33,28 +33,33 @@ const state = {
 	],
 	ratingTwoWords: [
 		['Word', 'Count'],
-		['return', 93],
-		['runs', 95],
-		['felt', 95],
-		['short', 96],
-		['nice', 96],
-		['bought', 98],
-		['wearing', 98],
-		['usually', 104],
-		['design', 105],
-		['dress.', 105],
-		['beautiful', 106],
-		['pretty', 108],
-		['waist', 109],
-		['retailer', 110],
-		['think', 112],
-		['thought', 114], ['great', 115], ['large', 116], ['see', 116], ['good', 119], ['cut', 127], ['loved', 130], ['cute', 133], ['sweater', 134], ['quality', 136], ['work', 140], ['back.', 142], ['-', 147], ['going', 148], ['tried', 149], ['made', 164], ['wanted', 172], ['color', 174], ['one', 190], ['shirt', 191], ['back', 193], ['material', 197], ['up', 200], ['looks', 202], ['me.', 204], ['small', 204], ['looked', 213], ['wear', 228], ['love', 299], ['look', 310], ['ordered', 317], ['fabric', 326], ['fit', 339], ['size', 347], ['top', 377], ['dress', 493]]
+		['up', 200], 
+		['looks', 202], 
+		['me.', 204], 
+		['small', 204], 
+		['looked', 213], 
+		['wear', 228], 
+		['love', 299], 
+		['look', 310], 
+		['ordered', 317], 
+		['fabric', 326], 
+		['fit', 339], 
+		['size', 347], 
+		['top', 377], 
+		['dress', 493]
+	],
+	ratingThreeWords: [],
+	ratingFourWords: [],
+	ratingFiveWords:  [],
 };
 
 const getters = {
 	sentiment: state => state.sentiment,
 	ratingOneWords: state => state.ratingOneWords,
 	ratingTwoWords: state => state.ratingTwoWords,
+	ratingThreeWords: state => state.ratingThreeWords,
+	ratingFourWords: state => state.ratingFourWords,
+	ratingFiveWords: state => state.ratingFiveWords,
 	currentSelectedWords: state => state.currentSelectedWords,
 };
 
@@ -62,13 +67,16 @@ const actions = {
 
 	changeRatingsValue: ({ commit, getters }, { payload }) => {
 		let words = []
-		console.log('ACTION')
-		console.log(payload)
 		if (payload['ratings'] === 1) {
 			words = getters.ratingOneWords
 		}else if (payload['ratings']  === 2) {
-			console.log("HERE")
 			words = getters.ratingTwoWords
+		}else if (payload['ratings']  === 3) {
+			words = getters.ratingThreeWords
+		}else if (payload['ratings']  === 4) {
+			words = getters.ratingFourWords
+		}else if (payload['ratings']  === 5) {
+			words = getters.ratingFiveWords
 		}
 		commit('setGraphRatingsValue', words)
 	},
