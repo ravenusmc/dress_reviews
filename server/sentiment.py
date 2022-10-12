@@ -49,7 +49,7 @@ class Sentiment():
     def get_word_count(self):
         exploring = Sentiment()
         df = exploring.drop_na()
-        ratings = [3, 4, 5]
+        ratings = [4, 5]
         # Wow...this code is the same as two methods above...maybe write a new method???
         for rating in ratings:
             rows = []
@@ -114,9 +114,15 @@ class Sentiment():
                     and current_word != "bit" and current_word != "however," and current_word != "get" and current_word != "usally"
                     and current_word != "about" and current_word != "them" and current_word != "don't" and current_word != "didn't"
                     and current_word != "way" and current_word != "were" and current_word != "because" and current_word != "than"
-                    and current_word != "much" and current_word != "-"):
+                    and current_word != "much" and current_word != "-" and current_word != "since" and current_word != "probably"
+                    and current_word != "though" and current_word != "both" and current_word != "however" and current_word != "on."
+                    and current_word != "it," and current_word != "maybe" and current_word != "then" and current_word != "keep"
+                    and current_word != "how" and current_word != "doesn't" and current_word != "wasn't" and current_word != "some"
+                    and current_word != "quite" and current_word != "does" and current_word != "your" and current_word != "try"
+                    and current_word != "xs" and current_word != "usually" and current_word != "going" and current_word != "see"
+                    and current_word != "wanted" and current_word != "think" and current_word != "me."):
                     word_count += 1
-                    if word_count > 90:
+                    if word_count > 700:
                         word_and_count[current_word] = word_count
             len_count += 1
         return word_and_count

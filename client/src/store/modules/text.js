@@ -33,24 +33,40 @@ const state = {
 	],
 	ratingTwoWords: [
 		['Word', 'Count'],
-		['up', 200], 
-		['looks', 202], 
-		['me.', 204], 
-		['small', 204], 
-		['looked', 213], 
-		['wear', 228], 
-		['love', 299], 
-		['look', 310], 
-		['ordered', 317], 
-		['fabric', 326], 
-		['fit', 339], 
-		['size', 347], 
-		['top', 377], 
+		['up', 200],
+		['looks', 202],
+		['me.', 204],
+		['small', 204],
+		['looked', 213],
+		['wear', 228],
+		['love', 299],
+		['look', 310],
+		['ordered', 317],
+		['fabric', 326],
+		['fit', 339],
+		['size', 347],
+		['top', 377],
 		['dress', 493]
 	],
-	ratingThreeWords: [],
+	ratingThreeWords: [
+		['Word', 'Count'],
+		['little', 346],
+		['up', 394],
+		['color', 401],
+		['small', 405],
+		['me.', 427],
+		['wear', 477],
+		['ordered', 510],
+		['look', 549],
+		['fabric', 594],
+		['love', 637],
+		['size', 733],
+		['top', 734],
+		['fit', 758],
+		['dress', 968]
+	],
 	ratingFourWords: [],
-	ratingFiveWords:  [],
+	ratingFiveWords: [],
 };
 
 const getters = {
@@ -69,13 +85,13 @@ const actions = {
 		let words = []
 		if (payload['ratings'] === 1) {
 			words = getters.ratingOneWords
-		}else if (payload['ratings']  === 2) {
+		} else if (payload['ratings'] === 2) {
 			words = getters.ratingTwoWords
-		}else if (payload['ratings']  === 3) {
+		} else if (payload['ratings'] === 3) {
 			words = getters.ratingThreeWords
-		}else if (payload['ratings']  === 4) {
+		} else if (payload['ratings'] === 4) {
 			words = getters.ratingFourWords
-		}else if (payload['ratings']  === 5) {
+		} else if (payload['ratings'] === 5) {
 			words = getters.ratingFiveWords
 		}
 		commit('setGraphRatingsValue', words)
@@ -94,10 +110,10 @@ const mutations = {
 
 
 
-	export default {
-		namespaced: true,
-		state,
-		getters,
-		actions, 
-		mutations,
-	};
+export default {
+	namespaced: true,
+	state,
+	getters,
+	actions,
+	mutations,
+};
