@@ -20,4 +20,8 @@ export default {
 
 <style>
 
+.center {
+  text-align: center;
+}
+
 </style>
