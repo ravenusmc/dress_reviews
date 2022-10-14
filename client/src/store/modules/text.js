@@ -65,7 +65,19 @@ const state = {
 		['fit', 758],
 		['dress', 968]
 	],
-	ratingFourWords: [],
+	ratingFourWords: [
+		['Word', 'Count'], 
+		['fabric', 803], 
+		['up', 804], 
+		['ordered', 808], 
+		['great', 911], 
+		['little', 997], 
+		['top', 1072], 
+		['wear', 1146], 
+		['fit', 1173], 
+		['love', 1302], 
+		['dress', 1542], 
+		['size', 1548]],
 	ratingFiveWords: [],
 };
 

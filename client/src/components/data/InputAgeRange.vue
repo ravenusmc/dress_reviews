@@ -18,7 +18,10 @@
         min="18"
         max="99"
       />
-      <button class="btn btn-success">Submit</button>
+      <br/>
+      <div class='button-div'>
+        <button class="btn btn-success">Submit</button>
+      </div>
     </form>
   </div>
 </template>
@@ -93,4 +96,16 @@ export default {
 </script>
 
 <style scoped>
+
+form {
+  border-bottom: 1px black dotted;
+  margin-bottom: 10px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 </style>
