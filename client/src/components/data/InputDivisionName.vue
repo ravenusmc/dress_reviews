@@ -1,11 +1,13 @@
 <template>
   <div>
-    <label for="divisionName">Please select a Division Name:</label>
-    <select @change="onChange()" v-model="Name">
-      <option v-for="divisionName in divisionNames" :key="divisionName">
-        {{ divisionName }}
-      </option>
-    </select>
+    <p class='center' for="divisionName">Please select a Division Name:</p>
+    <div class="drop-down-center">
+      <select @change="onChange()" v-model="Name">
+        <option v-for="divisionName in divisionNames" :key="divisionName">
+          {{ divisionName }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 

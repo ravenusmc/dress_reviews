@@ -24,4 +24,9 @@ export default {
   text-align: center;
 }
 
+.drop-down-center {
+  display: flex;
+  justify-content: center;
+}
+
 </style>

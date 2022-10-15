@@ -5,9 +5,11 @@
         <ResetInitialData />
         <InputDataRange />
         <InputAgeRange />
-        <InputDivisionName />
-        <InputDepartmentName />
-        <InputClassName />
+        <div class='column-select-area'>
+          <InputDivisionName />
+          <InputDepartmentName />
+          <InputClassName />
+        </div>
       </div>
       <div class="table-area">
         <GraphCard
@@ -77,7 +79,7 @@ export default {
   created() {
     const payload = {
       firstValue: this.firstValue,
-      lastValue: this.lastValue
+      lastValue: this.lastValue,
     };
     this.fetchInitialTableData({ payload });
   },
@@ -98,4 +100,7 @@ export default {
   border: 2px solid black;
 }
 
+.column-select-area {
+  margin-bottom: 10px;
+}
 </style>

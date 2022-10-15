@@ -49,7 +49,7 @@ class Sentiment():
     def get_word_count(self):
         exploring = Sentiment()
         df = exploring.drop_na()
-        ratings = [4, 5]
+        ratings = [5]
         # Wow...this code is the same as two methods above...maybe write a new method???
         for rating in ratings:
             rows = []

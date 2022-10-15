@@ -1,11 +1,13 @@
 <template>
   <div>
-    <label for="departmentName">Please select a Department Name:</label>
-    <select @change="onChange()" v-model="Name">
-      <option v-for="departmentName in departmentNames" :key="departmentName">
-        {{ departmentName }}
-      </option>
-    </select>
+    <p class='center' for="departmentName">Please select a Department Name:</p>
+    <div class="drop-down-center">
+      <select @change="onChange()" v-model="Name">
+        <option v-for="departmentName in departmentNames" :key="departmentName">
+          {{ departmentName }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -14,7 +16,12 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "InputDepartmentName",
   computed: {
-    ...mapGetters("data", ["departmentNames", "departmentName", "firstValue", "lastValue"]),
+    ...mapGetters("data", [
+      "departmentNames",
+      "departmentName",
+      "firstValue",
+      "lastValue",
+    ]),
   },
   data() {
     return {
@@ -34,7 +41,7 @@ export default {
       this.changeDataBasedOnSingleSelection({ payload });
     },
     changeDepartmentName() {
-      this.Name = this.departmentName
+      this.Name = this.departmentName;
     },
   },
   watch: {
