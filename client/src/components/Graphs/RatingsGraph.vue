@@ -1,10 +1,16 @@
 <template>
   <div>
-    <GChart :type="typeOne" :data="currentSelectedWords" :options="chartOptionsOne" />
+    <GChart
+      :type="typeOne"
+      :data="currentSelectedWords"
+      :options="chartOptionsOne"
+    />
     <form @submit="submitRatingSelection">
-      <label for="ratings">Pick a rating:</label>
-      <input type="number" v-model="rating" name="rating" min="1" max="5" />
-      <button class="btn btn-success">Submit</button>
+      <div class="input-div">
+        <label for="ratings">Pick a rating:</label>
+        <input type="number" v-model="rating" name="rating" min="1" max="5" />
+        <button class="btn btn-success">Submit</button>
+      </div>
     </form>
   </div>
 </template>
@@ -19,9 +25,7 @@ export default {
     GraphCard,
   },
   computed: {
-    ...mapGetters("text", [
-      "currentSelectedWords",
-    ]),
+    ...mapGetters("text", ["currentSelectedWords"]),
   },
   data() {
     return {
@@ -73,4 +77,13 @@ export default {
 </script>
 
 <style scoped>
+.input-div {
+  display: flex; 
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+button {
+  margin-left: 15px;
+}
 </style>
