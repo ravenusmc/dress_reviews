@@ -5,6 +5,7 @@ import json
 import datetime
 from textblob import TextBlob
 import operator
+import threading 
 
 # This class will deal with a majority of the data processing that this project will
 # handle.
@@ -55,6 +56,12 @@ class Sentiment():
             rows = []
             df_sorted_by_rating = df[(df['rating'] == rating)]
             words = exploring.build_word_list(df_sorted_by_rating)
+            for i in range(0, len(words), 100):
+                chunk = words[i:i + 100]
+                https://stackoverflow.com/questions/33470760/python-threads-object-append-to-list
+                thread = threading.Thread(target=self.clean_word_list(chunk))
+                print(thread)
+                input()
             word_and_count = exploring.clean_word_list(words)
             chartData = exploring.build_chart_data_from_dictionary(word_and_count)
             print(chartData)
@@ -62,7 +69,6 @@ class Sentiment():
     
     def build_word_list(self, df_sorted_by_rating):
         words = []
-        # review_text
         for text in df_sorted_by_rating['review_text']:
             temp_list = []
             temp_list = text.split()
@@ -70,7 +76,6 @@ class Sentiment():
         return words 
 
     def clean_word_list(self, words):
-        print(words)
         word_and_count = {}
         len_count = 0
         # looping through the list
