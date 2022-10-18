@@ -56,11 +56,13 @@ class Sentiment():
             rows = []
             df_sorted_by_rating = df[(df['rating'] == rating)]
             words = exploring.build_word_list(df_sorted_by_rating)
-            for i in range(0, len(words), 100):
-                chunk = words[i:i + 100]
-                https://stackoverflow.com/questions/33470760/python-threads-object-append-to-list
+            threads = []
+            for i in range(0, len(words), 10000):
+                chunk = words[i:i + 10000]
                 thread = threading.Thread(target=self.clean_word_list(chunk))
-                print(thread)
+                threads.append(thread)
+                thread.start
+                print(threads)
                 input()
             word_and_count = exploring.clean_word_list(words)
             chartData = exploring.build_chart_data_from_dictionary(word_and_count)
@@ -79,8 +81,8 @@ class Sentiment():
         word_and_count = {}
         len_count = 0
         # looping through the list
-        print(len(words))
-        input()
+        # print(len(words))
+        # input()
         while len_count < len(words):
             print(len_count)
             word_count = 0

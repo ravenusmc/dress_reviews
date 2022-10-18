@@ -188,3 +188,9 @@ https://github.com/ravenusmc/statues/blob/main/client/src/components/data/grapho
 			['top', 734], 
 			['fit', 758], 
 			['dress', 968]]
+
+Threading issue:
+https://stackoverflow.com/questions/33470760/python-threads-object-append-to-list
+
+Article on Threading: 
+https://realpython.com/intro-to-python-threading/
