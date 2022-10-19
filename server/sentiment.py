@@ -62,8 +62,6 @@ class Sentiment():
                 thread = threading.Thread(target=self.clean_word_list(chunk))
                 threads.append(thread)
                 thread.start
-                print(threads)
-                input()
             word_and_count = exploring.clean_word_list(words)
             chartData = exploring.build_chart_data_from_dictionary(word_and_count)
             print(chartData)
