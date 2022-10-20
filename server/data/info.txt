@@ -55,9 +55,10 @@ recommend_index
 
 npm uninstall vue-google-charts --save
 
+Reference Information: 
+
 Reference:
 https://github.com/ravenusmc/statues/blob/main/client/src/components/data/graphone/FormOne.vue
-
 
 Threading issue:
 https://stackoverflow.com/questions/33470760/python-threads-object-append-to-list
