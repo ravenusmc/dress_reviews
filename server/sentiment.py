@@ -56,12 +56,9 @@ class Sentiment():
             rows = []
             df_sorted_by_rating = df[(df['rating'] == rating)]
             words = exploring.build_word_list(df_sorted_by_rating)
-            threads = []
-            for i in range(0, len(words), 10000):
-                chunk = words[i:i + 10000]
-                thread = threading.Thread(target=self.clean_word_list(chunk))
-                threads.append(thread)
-                thread.start
+            print(len(words))
+            input()
+
             word_and_count = exploring.clean_word_list(words)
             chartData = exploring.build_chart_data_from_dictionary(word_and_count)
             print(chartData)

@@ -65,3 +65,11 @@ https://stackoverflow.com/questions/33470760/python-threads-object-append-to-lis
 
 Article on Threading: 
 https://realpython.com/intro-to-python-threading/
+
+thread code:
+            # threads = []
+            # for i in range(0, len(words), 10000):
+            #     chunk = words[i:i + 10000]
+            #     thread = threading.Thread(target=self.clean_word_list(chunk))
+            #     threads.append(thread)
+            #     thread.start
