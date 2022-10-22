@@ -32,12 +32,17 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <router-link to="/main">Data</router-link>
+              <router-link v-if="!loginFlag" to="/login">Login</router-link>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <router-link to="/graphs">Graphs</router-link>
+              <router-link v-if="loginFlag" to="/main">Data</router-link>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <router-link  v-if="loginFlag" to="/graphs">Graphs</router-link>
             </a>
           </li>
         </ul>
@@ -55,15 +60,15 @@ export default {
       showNav: false,
     };
   },
-  // computed: {
-  //   ...mapGetters('common', ['loginFlag']),
-  // },
-  // methods: {
-  //   ...mapActions(['common/logout']),
-  //   logout: function () {
-  //     this.$store.dispatch('common/logout');
-  //   },
-  // },
+  computed: {
+    ...mapGetters('common', ['loginFlag']),
+  },
+  methods: {
+    ...mapActions(['common/logout']),
+    logout: function () {
+      this.$store.dispatch('common/logout');
+    },
+  },
 };
 </script>
 
