@@ -20,8 +20,6 @@ const getters = {
 const actions = {
 
 	setUpUser: (context, { payload }) => {
-		console.log('ACITON')
-		console.log(payload )
 		const path = 'http://localhost:5000/signup';
 		axios.post(path, payload)
 			.then(() => {

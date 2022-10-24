@@ -3,6 +3,8 @@ from flask_cors import CORS
 
 # Importing files that I created for the project
 from data import *
+from db import *
+from user import *
 
 
 # configuration
@@ -14,6 +16,19 @@ app.config.from_object(__name__)
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        db = Connection()
+        post_data = request.get_json()
+        user = User(post_data['firstName'], post_data['lastName'], post_data['email'],
+                    post_data['userName'], post_data['password'])
+        hashed = db.encrypt_pass(post_data)
+        print(hashed)
+        input()
+        user_created = db.insert(user, hashed)
+        return jsonify(user_created)
 
 
 @app.route('/fetch_initial_table', methods=['GET', 'POST'])
