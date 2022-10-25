@@ -21,3 +21,15 @@ class Connection():
         password = post_data['password'].encode('utf-8')
         hashed = bcrypt.hashpw(password, bcrypt.gensalt())
         return hashed
+
+    # This method will insert a new user into the database.
+    def insert(self, user, hashed):
+        user_created = True
+        self._SQL = """insert into users
+          (firstName, lastName, email, username, password)
+          values
+          (%s, %s, %s, %s, %s)"""
+        self.cursor.execute(self._SQL, (user.first_name,
+                            user.last_name, user.email, user.username, hashed))
+        self.conn.commit()
+        return user_created

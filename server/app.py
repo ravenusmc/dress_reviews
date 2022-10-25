@@ -25,9 +25,8 @@ def signup():
         user = User(post_data['firstName'], post_data['lastName'], post_data['email'],
                     post_data['userName'], post_data['password'])
         hashed = db.encrypt_pass(post_data)
-        print(hashed)
-        input()
         user_created = db.insert(user, hashed)
+        print('DONE')
         return jsonify(user_created)
 
 

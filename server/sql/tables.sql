@@ -13,3 +13,8 @@ CREATE TABLE users
   PRIMARY KEY(user_id)
 );
 
+Show databases;
+
+Use dresses; 
+
+DELETE FROM users WHERE user_id = 2;

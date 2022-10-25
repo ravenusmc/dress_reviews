@@ -22,8 +22,8 @@ const actions = {
 	setUpUser: (context, { payload }) => {
 		const path = 'http://localhost:5000/signup';
 		axios.post(path, payload)
-			.then(() => {
-				this.$router.push({ path: '/login' });
+			.then((res) => {
+				router.push({ name: 'login' });
 			})
 			.catch((error) => {
 				console.log(error);
