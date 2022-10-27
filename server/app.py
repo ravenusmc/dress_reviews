@@ -29,6 +29,23 @@ def signup():
         print('DONE')
         return jsonify(user_created)
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        db = Connection()
+        post_data = request.get_json()
+        username = post_data['userName']
+        password = post_data['password']
+        login_values = {}
+        # Checking to see if the user is in the database
+        login_flag, not_found, password_no_match, user = db.check(
+            username, password)
+        login_values['login_flag'] = login_flag
+        login_values['Not_found'] = not_found
+        login_values['Password_no_match'] = password_no_match
+        login_values['user'] = user
+    return jsonify(login_values)
+
 
 @app.route('/fetch_initial_table', methods=['GET', 'POST'])
 def fetch_initial_table():

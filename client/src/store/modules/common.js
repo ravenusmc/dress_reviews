@@ -37,9 +37,9 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				if (res.data.login_flag) {
-					commit('session/setUserObject', res.data.user, { root: true });
+					// commit('session/setUserObject', res.data.user, { root: true });
 					commit('setLoginFlag', res.data.login_flag);
-					router.push({ name: 'Data' });
+					router.push({ name: 'main' });
 				}
 				commit('setNoPasswordMatch', res.data.Password_no_match);
 				commit('setUserNotFound', res.data.Not_found);
