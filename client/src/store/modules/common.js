@@ -53,11 +53,9 @@ const actions = {
 		let userNotFound = false;
 		let passwordNoMatch = false;
 		let loginFlag = false;
-		let userObject = [];
 		commit('setUserNotFound', userNotFound);
 		commit('setNoPasswordMatch', passwordNoMatch);
 		commit('setLoginFlag', loginFlag);
-		commit('session/setUserObject', userObject, { root: true })
 	},
 
 };

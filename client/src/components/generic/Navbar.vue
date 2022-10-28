@@ -50,6 +50,16 @@
               <router-link v-if="loginFlag" to="/graphs">Graphs</router-link>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+                        <router-link
+            v-if="loginFlag"
+            @click.native="logout"
+            class="fontColor font"
+            to="/login">Log Out</router-link>
+            </a>
+          </li>
+          </router-link>
         </ul>
       </div>
     </nav>
