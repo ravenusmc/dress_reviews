@@ -23,35 +23,32 @@
             >
           </li>
           <li class="nav-item">
-            <a class="navbar-item"> </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link">
               <router-link to="/about">About</router-link>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <router-link v-if="!loginFlag" to="/login">Login</router-link>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <router-link v-if="!loginFlag" to="/sign_up">Sign up</router-link>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link">
               <router-link v-if="loginFlag" to="/main">Data</router-link>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link">
               <router-link v-if="loginFlag" to="/graphs">Graphs</router-link>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link">
+              <router-link v-if="!loginFlag" to="/login">Login</router-link>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <router-link v-if="!loginFlag" to="/sign_up">Sign up</router-link>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
                         <router-link
             v-if="loginFlag"
             @click.native="logout"
