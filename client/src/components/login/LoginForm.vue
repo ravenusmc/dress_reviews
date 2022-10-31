@@ -33,7 +33,7 @@
               />
             </div>
             <div class="button-div">
-              <button class="btn btn-success">Login</button>
+              <button class="btn btn-success">Explore</button>
             </div>
           </form>
         </div>

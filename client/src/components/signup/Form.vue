@@ -1,87 +1,62 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@ravenusmc 
-ravenusmc
-/
-statues
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-statues/client/src/components/signup/Form.vue
-@ravenusmc
-ravenusmc working on building drilldown table for first graph
-Latest commit 43a990b on Jan 5
- History
- 1 contributor
-122 lines (118 sloc)  3 KB
-
 <template>
   <div>
     <section>
-      <h1 class="center signup-title title-size font">Sign Up</h1>
-      <form @submit="signup">
-        <div class="field">
-          <input
-            class="input is-primary is-rounded"
-            type="name"
-            v-model="firstName"
-            placeholder="First Name"
-          />
+      <div class="form-area">
+        <div class="form-input-area">
+          <h1 class="center signup-title title-size font">Sign Up</h1>
+          <form @submit="signup">
+            <div class="field">
+              <input
+                class="input is-primary is-rounded"
+                type="name"
+                v-model="firstName"
+                placeholder="First Name"
+              />
+            </div>
+            <div class="field">
+              <input
+                class="input is-primary is-rounded"
+                type="name"
+                v-model="lastName"
+                placeholder="Last Name"
+              />
+            </div>
+            <div class="field">
+              <input
+                class="input is-primary is-rounded"
+                type="email"
+                v-model="email"
+                placeholder="email"
+              />
+            </div>
+            <div class="field">
+              <input
+                class="input is-primary is-rounded"
+                type="name"
+                v-model="userName"
+                placeholder="UserName"
+              />
+            </div>
+            <div class="field">
+              <input
+                class="input is-primary is-rounded"
+                type="password"
+                v-model="password"
+                placeholder="Password"
+              />
+            </div>
+            <div class="field">
+              <input
+                class="input is-primary is-rounded"
+                type="password"
+                v-model="confirmPassword"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <button class="btn btn-success">Sign Up</button>
+          </form>
         </div>
-        <div class="field">
-          <input
-            class="input is-primary is-rounded"
-            type="name"
-            v-model="lastName"
-            placeholder="Last Name"
-          />
-        </div>
-        <div class="field">
-          <input
-            class="input is-primary is-rounded"
-            type="email"
-            v-model="email"
-            placeholder="email"
-          />
-        </div>
-        <div class="field">
-          <input
-            class="input is-primary is-rounded"
-            type="name"
-            v-model="userName"
-            placeholder="UserName"
-          />
-        </div>
-        <div class="field">
-          <input
-            class="input is-primary is-rounded"
-            type="password"
-            v-model="password"
-            placeholder="Password"
-          />
-        </div>
-        <div class="field">
-          <input
-            class="input is-primary is-rounded"
-            type="password"
-            v-model="confirmPassword"
-            placeholder="Confirm Password"
-          />
-        </div>
-        <button class="button is-success">Sign Up</button>
-      </form>
+      </div>
     </section>
   </div>
 </template>
@@ -101,7 +76,7 @@ export default {
     };
   },
   methods: {
-		...mapActions("common", ["setUpUser"]),
+    ...mapActions("common", ["setUpUser"]),
     signup(evt) {
       evt.preventDefault();
       if (this.firstName === "") {
@@ -127,7 +102,7 @@ export default {
           password: this.password,
           confirmPassword: this.confirmPassword,
         };
-				this.setUpUser({ payload });
+        this.setUpUser({ payload });
       }
     },
   },
@@ -136,29 +111,37 @@ export default {
 
 <style scoped>
 section {
-  height: 80vh;
-  margin: 5% 5% 5% 5%;
+  height: 150vh;
+  margin: 3%;
+  background-image: url("../../assets/images/Signup.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .signup-title {
   text-transform: uppercase;
   font-weight: bold;
+  color: white;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input-area {
+  background-color: rgb(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 12%;
+}
+
+button {
+  margin-top: 10px;
 }
 </style>
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-statues/client/src at main · ravenusmc/statuesstatues/Form.vue at main · ravenusmc/statues
