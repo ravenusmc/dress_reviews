@@ -111,7 +111,7 @@ export default {
 
 <style scoped>
 section {
-  height: 150vh;
+  height: 100vh;
   margin: 3%;
   background-image: url("../../assets/images/Signup.jpg");
   background-position: center;

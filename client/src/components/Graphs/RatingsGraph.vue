@@ -8,7 +8,7 @@
     <form @submit="submitRatingSelection">
       <div class="input-div">
         <label for="ratings">Pick a rating:</label>
-        <input type="number" v-model="rating" name="rating" min="1" max="5" />
+        <input type="number" v-model="rating" name="rating" min="1" max="4" />
         <button class="btn btn-success">Submit</button>
       </div>
     </form>
