@@ -93,23 +93,29 @@ export default {
         newFirstValue = this.firstValue + 20;
         newLastValue = this.lastValue + 20;
         this.showDownButton();
+        // console.log('1')
       } else if (direction === "down" && this.firstValue - 20 == 0) {
         this.coverDownButton();
+        // console.log('2')
       } else if (
         direction === "down" &&
         this.lastValue - this.dataLength < 20
       ) {
         newFirstValue = this.firstValue - 20;
         newLastValue = newFirstValue + 20;
+        this.showUpButton()
+        // console.log('3')
       } else if (direction === "down") {
         newFirstValue = this.firstValue - 20;
         newLastValue = this.lastValue - 20;
+        // console.log('4')
       }
 
       if (newLastValue > this.dataLength) {
         newFirstValue = newLastValue - 20;
         newLastValue = this.dataLength;
         this.coverUpButton();
+        // console.log('HERE')
       }
 
       if (newFirstValue == 0 && newLastValue == 20) {
