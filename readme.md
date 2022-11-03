@@ -37,7 +37,7 @@ as well as npm.
 
 # Issues / Other
 
-None at this time.
+The one issue that this project may need is that the data range area, on the form, may have some bugs in it. I thought I had the system working and then noticed that it had issues. I rebuilt it and think I may have fixed it but I've not fully tested it. 
 
 # Preview
 
