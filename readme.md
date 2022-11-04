@@ -39,6 +39,8 @@ as well as npm.
 
 The one issue that this project may need is that the data range area, on the form, may have some bugs in it. I thought I had the system working and then noticed that it had issues. I rebuilt it and think I may have fixed it but I've not fully tested it. 
 
+The other thing is that on the common words graph it only goes through ratings 1-4 and not 1-5. The reason being is that there are over 700,000 words with for the 5 star rating and it was taking to long to get the results!
+
 # Preview
 
 To see a video that talks about this project please go here: COMING SOON
