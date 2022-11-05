@@ -1,25 +1,21 @@
 <template>
   <div>
     <form @submit="submitSelectedAges">
-      <label for="ageOne">First Age Value:</label>
-      <input
-        type="number"
-        v-model="ageOne"
-        name="ageOne"
-        min="18"
-        max="99"
-      />
-      <label for="ageTwo">Second Age Value:</label>
-      <input
-        type="number"
-        id="ageTwo"
-        v-model="ageTwo"
-        name="ageTwo"
-        min="18"
-        max="99"
-      />
-      <br/>
-      <div class='button-div'>
+      <div class="input-area">
+        <label for="ageOne">First Age Value:</label>
+        <input type="number" v-model="ageOne" name="ageOne" min="18" max="99" />
+        <label for="ageTwo">Second Age Value:</label>
+        <input
+          type="number"
+          id="ageTwo"
+          v-model="ageTwo"
+          name="ageTwo"
+          min="18"
+          max="99"
+        />
+      </div>
+      <br />
+      <div class="button-div">
         <button class="btn btn-success">Submit</button>
       </div>
     </form>
@@ -68,11 +64,11 @@ export default {
       this.fetchDataBasedOnAge({ payload });
     },
     changeFirstAge() {
-      this.ageOne = this.firstAgeValue
+      this.ageOne = this.firstAgeValue;
     },
     changeSecondAge() {
-      this.ageTwo = this.secondAgeValue
-    }
+      this.ageTwo = this.secondAgeValue;
+    },
   },
   watch: {
     firstAgeValue: {
@@ -96,10 +92,16 @@ export default {
 </script>
 
 <style scoped>
-
 form {
   border-bottom: 1px black dotted;
   margin-bottom: 10px;
+}
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 10% 0 10%;
 }
 
 .button-div {
@@ -107,5 +109,4 @@ form {
   justify-content: center;
   margin-bottom: 10px;
 }
-
 </style>
