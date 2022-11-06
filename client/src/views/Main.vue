@@ -101,6 +101,6 @@ export default {
 }
 
 .column-select-area {
-  margin-bottom: 10px;
+  margin: 0 3% 10px 3%;
 }
 </style>
