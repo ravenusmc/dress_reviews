@@ -37,9 +37,11 @@ as well as npm.
 
 # Issues / Other
 
-The one issue that this project may need is that the data range area, on the form, may have some bugs in it. I thought I had the system working and then noticed that it had issues. I rebuilt it and think I may have fixed it but I've not fully tested it. 
+There are two main issues in this project. One of them may okay but a lot more testing is required. The second is basically just because I got lazy. 
 
-The other thing is that on the common words graph it only goes through ratings 1-4 and not 1-5. The reason being is that there are over 700,000 words with for the 5 star rating and it was taking to long to get the results!
+1. The first issue is that the data range area, on the form, may have some bugs in it. I thought I had the system working and then noticed that it had issues. I rebuilt it and think I may have fixed it but I've not fully tested it. 
+
+2. The second issue is that on the common words graph it only goes through ratings 1-4 and not 1-5. The reason being is that there are over 700,000 words with for the 5 star rating and it was taking to long to get the results!
 
 # Preview
 
